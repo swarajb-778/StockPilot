@@ -3,8 +3,10 @@
 import { useCreateProductMutation, useGetProductsQuery } from "@/state/api";
 import { PlusCircleIcon, SearchIcon, Package } from "lucide-react";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/app/(components)/Header";
 import Rating from "@/app/(components)/Rating";
+import PageTransition from "@/app/(components)/PageTransition";
 
 type ProductFormData = {
   name: string;
@@ -61,79 +63,126 @@ const Products = () => {
   }
 
   return (
-    <div className="mx-auto pb-5 w-full">
-      {/* SEARCH BAR */}
-      <div className="mb-6">
-        <div className="flex items-center border-2 border-gray-200 rounded-lg bg-white">
-          <SearchIcon className="w-5 h-5 text-gray-500 m-2" />
-          <input
-            className="w-full py-2 px-4 rounded-lg bg-white focus:outline-none"
-            placeholder="Search products..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
-      </div>
-
-      {/* HEADER BAR */}
-      <div className="flex justify-between items-center mb-6">
-        <Header name="Products" />
-        <button
-          className="flex items-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition-colors"
-          onClick={() => setIsModalOpen(true)}
+    <PageTransition>
+      <div className="mx-auto pb-5 w-full">
+        {/* SEARCH BAR */}
+        <motion.div
+          className="mb-6"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <PlusCircleIcon className="w-5 h-5 mr-2" /> Create Product
-        </button>
-      </div>
-
-      {/* BODY PRODUCTS LIST */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {products?.map((product) => (
-          <div
-            key={product.productId}
-            className="bg-white border border-gray-200 shadow-sm rounded-xl p-4 hover:shadow-lg transition-shadow"
+          <motion.div
+            className="flex items-center border-2 border-gray-200 rounded-lg bg-white"
+            whileHover={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
           >
-            <div className="flex flex-col items-center">
-              {/* Product Image Placeholder */}
-              <div className={`w-32 h-32 rounded-xl bg-gradient-to-br ${getProductColor(product.name)} flex items-center justify-center mb-4`}>
-                <Package className="w-12 h-12 text-white opacity-80" />
-              </div>
-              <h3 className="text-lg text-gray-900 font-semibold text-center">
-                {product.name}
-              </h3>
-              <p className="text-purple-600 font-bold text-lg mt-1">
-                ${product.price.toFixed(2)}
-              </p>
-              <div className="text-sm text-gray-600 mt-1">
-                Stock: {product.stockQuantity.toLocaleString()}
-              </div>
-              {product.rating && (
-                <div className="flex items-center mt-2">
-                  <Rating rating={product.rating} />
+            <SearchIcon className="w-5 h-5 text-gray-500 m-2" />
+            <input
+              className="w-full py-2 px-4 rounded-lg bg-white focus:outline-none"
+              placeholder="Search products..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </motion.div>
+        </motion.div>
+
+        {/* HEADER BAR */}
+        <motion.div
+          className="flex justify-between items-center mb-6"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <Header name="Products" />
+          <motion.button
+            className="flex items-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition-colors"
+            onClick={() => setIsModalOpen(true)}
+            whileHover={{ scale: 1.05, boxShadow: "0 5px 15px rgba(124, 58, 237, 0.3)" }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <PlusCircleIcon className="w-5 h-5 mr-2" /> Create Product
+          </motion.button>
+        </motion.div>
+
+        {/* BODY PRODUCTS LIST */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+        >
+          {products?.map((product, index) => (
+            <motion.div
+              key={product.productId}
+              className="bg-white border border-gray-200 shadow-sm rounded-xl p-4 hover:shadow-lg transition-shadow"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              whileHover={{ y: -10, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="flex flex-col items-center">
+                {/* Product Image Placeholder */}
+                <motion.div
+                  className={`w-32 h-32 rounded-xl bg-gradient-to-br ${getProductColor(product.name)} flex items-center justify-center mb-4`}
+                  whileHover={{ rotate: 5, scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Package className="w-12 h-12 text-white opacity-80" />
+                </motion.div>
+                <h3 className="text-lg text-gray-900 font-semibold text-center">
+                  {product.name}
+                </h3>
+                <p className="text-purple-600 font-bold text-lg mt-1">
+                  ${product.price.toFixed(2)}
+                </p>
+                <div className="text-sm text-gray-600 mt-1">
+                  Stock: {product.stockQuantity.toLocaleString()}
                 </div>
-              )}
-            </div>
-          </div>
-        ))}
+                {product.rating && (
+                  <div className="flex items-center mt-2">
+                    <Rating rating={product.rating} />
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Empty State */}
+        {products?.length === 0 && (
+          <motion.div
+            className="text-center py-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Package className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+            <p className="text-gray-500">No products found</p>
+          </motion.div>
+        )}
+
+        {/* MODAL */}
+        <AnimatePresence>
+          {isModalOpen && (
+            <CreateProductModal
+              isOpen={isModalOpen}
+              onClose={() => setIsModalOpen(false)}
+              onCreate={handleCreateProduct}
+            />
+          )}
+        </AnimatePresence>
       </div>
-
-      {/* Empty State */}
-      {products?.length === 0 && (
-        <div className="text-center py-10">
-          <Package className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <p className="text-gray-500">No products found</p>
-        </div>
-      )}
-
-      {/* MODAL */}
-      {isModalOpen && (
-        <CreateProductModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          onCreate={handleCreateProduct}
-        />
-      )}
-    </div>
+    </PageTransition>
   );
 };
 
@@ -162,8 +211,20 @@ const CreateProductModal = ({ isOpen, onClose, onCreate }: CreateProductModalPro
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-xl p-6 w-full max-w-md">
+    <motion.div
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <motion.div
+        className="bg-white rounded-xl p-6 w-full max-w-md"
+        initial={{ scale: 0.8, y: 50 }}
+        animate={{ scale: 1, y: 0 }}
+        exit={{ scale: 0.8, y: 50 }}
+        onClick={(e) => e.stopPropagation()}
+      >
         <h2 className="text-xl font-bold mb-4">Create New Product</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -233,8 +294,8 @@ const CreateProductModal = ({ isOpen, onClose, onCreate }: CreateProductModalPro
             </button>
           </div>
         </form>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

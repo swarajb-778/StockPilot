@@ -3,6 +3,8 @@
 import { useGetUsersQuery } from "@/state/api";
 import Header from "@/app/(components)/Header";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import PageTransition from "@/app/(components)/PageTransition";
+import { motion } from "framer-motion";
 
 const columns: GridColDef[] = [
   { field: "userId", headerName: "ID", width: 90 },
@@ -28,28 +30,42 @@ const Users = () => {
   }
 
   return (
-    <div className="flex flex-col">
-      <Header name="Users" />
-      <DataGrid
-        rows={users}
-        columns={columns}
-        getRowId={(row) => row.userId}
-        checkboxSelection
-        className="bg-white shadow rounded-lg border border-gray-200 mt-5 !text-gray-700"
-        sx={{
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: "#7c3aed",
-            color: "white",
-          },
-          "& .MuiCheckbox-root": {
-            color: "#7c3aed",
-          },
-          "& .MuiDataGrid-row:hover": {
-            backgroundColor: "#f3e8ff",
-          },
-        }}
-      />
-    </div>
+    <PageTransition>
+      <div className="flex flex-col">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Header name="Users" />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <DataGrid
+            rows={users}
+            columns={columns}
+            getRowId={(row) => row.userId}
+            checkboxSelection
+            className="bg-white shadow rounded-lg border border-gray-200 mt-5 !text-gray-700"
+            sx={{
+              "& .MuiDataGrid-columnHeaders": {
+                backgroundColor: "#7c3aed",
+                color: "white",
+              },
+              "& .MuiCheckbox-root": {
+                color: "#7c3aed",
+              },
+              "& .MuiDataGrid-row:hover": {
+                backgroundColor: "#f3e8ff",
+              },
+            }}
+          />
+        </motion.div>
+      </div>
+    </PageTransition>
   );
 };
 

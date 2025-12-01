@@ -15,7 +15,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
 
@@ -37,7 +37,8 @@ const SidebarLink = ({
   const pathname = usePathname();
   const isActive =
     pathname === href || (pathname === "/" && href === "/dashboard");
-  const linkRef = useRef(null);
+  const linkRef = useRef<HTMLDivElement>(null);
+  const iconRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (linkRef.current) {
@@ -48,12 +49,39 @@ const SidebarLink = ({
           x: 0,
           opacity: 1,
           duration: 0.5,
-          delay: index * 0.1,
+          delay: index * 0.08,
           ease: "power3.out",
         }
       );
     }
   }, [index]);
+
+  // Magnetic hover effect using GSAP
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (iconRef.current) {
+      const rect = iconRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      gsap.to(iconRef.current, {
+        x: x * 0.3,
+        y: y * 0.3,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    }
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    if (iconRef.current) {
+      gsap.to(iconRef.current, {
+        x: 0,
+        y: 0,
+        duration: 0.5,
+        ease: "elastic.out(1, 0.3)",
+      });
+    }
+  }, []);
 
   return (
     <Link href={href}>
@@ -69,6 +97,8 @@ const SidebarLink = ({
         whileHover={{ x: isCollapsed ? 0 : 10 }}
         whileTap={{ scale: 0.95 }}
         transition={{ duration: 0.2 }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
       >
         {isActive && (
           <motion.div
@@ -80,12 +110,9 @@ const SidebarLink = ({
             transition={{ duration: 0.3 }}
           />
         )}
-        <motion.div
-          whileHover={{ rotate: 360, scale: 1.2 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div ref={iconRef}>
           <Icon className="w-6 h-6 !text-gray-700" />
-        </motion.div>
+        </div>
 
         <AnimatePresence>
           {!isCollapsed && (
@@ -110,7 +137,9 @@ const Sidebar = () => {
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed
   );
-  const logoRef = useRef(null);
+  const logoRef = useRef<HTMLDivElement>(null);
+  const sidebarRef = useRef<HTMLDivElement>(null);
+  const linksContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (logoRef.current) {
@@ -127,6 +156,17 @@ const Sidebar = () => {
     }
   }, []);
 
+  // Sidebar collapse/expand animation
+  useEffect(() => {
+    if (sidebarRef.current) {
+      gsap.to(sidebarRef.current, {
+        width: isSidebarCollapsed ? "4rem" : "16rem",
+        duration: 0.4,
+        ease: "power3.inOut",
+      });
+    }
+  }, [isSidebarCollapsed]);
+
   const toggleSidebar = () => {
     dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
   };
@@ -137,6 +177,7 @@ const Sidebar = () => {
 
   return (
     <motion.div
+      ref={sidebarRef}
       className={sidebarClassNames}
       initial={{ x: -300 }}
       animate={{ x: 0 }}
@@ -187,7 +228,7 @@ const Sidebar = () => {
       </div>
 
       {/* LINKS */}
-      <div className="flex-grow mt-8">
+      <div ref={linksContainerRef} className="flex-grow mt-8">
         <SidebarLink
           href="/dashboard"
           icon={Layout}
@@ -243,7 +284,7 @@ const Sidebar = () => {
             className="mb-10"
           >
             <p className="text-center text-xs text-gray-500">
-              &copy; 2025 StockPilot - Made by Swaraj
+              &copy; 2025 StockPilot
             </p>
           </motion.div>
         )}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import DashboardWrapper from "./dashboardWrapper";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,13 +18,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="icon" href="/StockPilotLogo.svg" type="image/svg+xml" />
-      </head>
-      <body className={inter.className}>
-        <DashboardWrapper>{children}</DashboardWrapper>
-      </body>
-    </html>
+    <ClerkProvider
+      appearance={{
+        variables: {
+          colorPrimary: "#7c3aed",
+          colorBackground: "#ffffff",
+          colorText: "#1f2937",
+          colorInputBackground: "#f9fafb",
+          colorInputText: "#1f2937",
+        },
+      }}
+    >
+      <html lang="en">
+        <head>
+          <link rel="icon" href="/StockPilotLogo.svg" type="image/svg+xml" />
+        </head>
+        <body className={inter.className}>{children}</body>
+      </html>
+    </ClerkProvider>
   );
 }

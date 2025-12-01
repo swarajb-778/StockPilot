@@ -2,11 +2,14 @@
 
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsDarkMode, setIsSidebarCollapsed } from "@/state";
-import { Bell, Menu, Moon, Settings, Sun, User } from "lucide-react";
+import { Bell, Menu, Moon, Settings, Sun, Search } from "lucide-react";
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
+import { UserButton, useUser } from "@clerk/nextjs";
+import NotificationPanel from "../NotificationPanel";
+import { useGetUnreadNotificationCountQuery } from "@/state/api";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -16,6 +19,11 @@ const Navbar = () => {
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
   const navRef = useRef(null);
   const searchRef = useRef(null);
+  const { user, isLoaded } = useUser();
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  
+  // Fetch unread notification count
+  const { data: unreadCount } = useGetUnreadNotificationCountQuery();
 
   useEffect(() => {
     if (navRef.current) {
@@ -56,6 +64,8 @@ const Navbar = () => {
     dispatch(setIsDarkMode(!isDarkMode));
   };
 
+  const notificationCount = unreadCount?.count || 0;
+
   return (
     <motion.div
       ref={navRef}
@@ -93,7 +103,7 @@ const Navbar = () => {
           />
 
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Bell className="text-gray-500" size={20} />
+            <Search className="text-gray-500" size={20} />
           </div>
         </motion.div>
       </div>
@@ -135,44 +145,70 @@ const Navbar = () => {
               </AnimatePresence>
             </motion.button>
           </motion.div>
-          <motion.div
-            className="relative"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Bell className="cursor-pointer text-gray-500" size={24} />
-            <motion.span
-              className="absolute -top-2 -right-2 inline-flex items-center justify-center px-[0.4rem] py-1 text-xs font-semibold leading-none text-red-100 bg-red-400 rounded-full"
-              animate={{
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
+
+          {/* Notification Bell with Panel */}
+          <div className="relative">
+            <motion.button
+              className="relative p-2 rounded-full hover:bg-gray-100 transition-colors"
+              onClick={() => setIsNotificationOpen(!isNotificationOpen)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
-              3
-            </motion.span>
-          </motion.div>
+              <Bell className="cursor-pointer text-gray-500" size={24} />
+              {notificationCount > 0 && (
+                <motion.span
+                  className="absolute -top-1 -right-1 inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 text-xs font-bold leading-none text-white bg-red-500 rounded-full"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 15 }}
+                >
+                  {notificationCount > 99 ? "99+" : notificationCount}
+                </motion.span>
+              )}
+            </motion.button>
+
+            {/* Notification Panel */}
+            <NotificationPanel
+              isOpen={isNotificationOpen}
+              onClose={() => setIsNotificationOpen(false)}
+            />
+          </div>
+
           <hr className="w-0 h-7 border border-solid border-l border-gray-300 mx-3" />
+
+          {/* User Profile with Clerk */}
           <motion.div
-            className="flex items-center gap-3 cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-3"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
           >
-            <motion.div
-              className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center"
-              whileHover={{
-                boxShadow: "0 0 20px rgba(147, 51, 234, 0.5)",
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              <User className="w-5 h-5 text-white" />
-            </motion.div>
-            <span className="font-semibold">Admin</span>
+            {isLoaded ? (
+              <>
+                <UserButton
+                  afterSignOutUrl="/sign-in"
+                  appearance={{
+                    elements: {
+                      avatarBox:
+                        "w-10 h-10 rounded-full ring-2 ring-purple-500/30 hover:ring-purple-500/50 transition-all",
+                      userButtonPopoverCard:
+                        "shadow-xl border border-gray-200",
+                      userButtonPopoverActionButton:
+                        "hover:bg-purple-50",
+                      userButtonPopoverActionButtonText: "text-gray-700",
+                      userButtonPopoverFooter: "hidden",
+                    },
+                  }}
+                />
+                <span className="font-semibold text-gray-700">
+                  {user?.firstName || user?.username || "User"}
+                </span>
+              </>
+            ) : (
+              <div className="w-10 h-10 rounded-full bg-gray-200 animate-pulse" />
+            )}
           </motion.div>
         </div>
+
         <Link href="/settings">
           <motion.div
             whileHover={{ rotate: 90, scale: 1.1 }}

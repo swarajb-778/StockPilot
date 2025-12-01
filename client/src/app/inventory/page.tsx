@@ -3,6 +3,8 @@
 import { useGetProductsQuery } from "@/state/api";
 import Header from "@/app/(components)/Header";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import PageTransition from "@/app/(components)/PageTransition";
+import { motion } from "framer-motion";
 
 const columns: GridColDef[] = [
   { field: "productId", headerName: "ID", width: 90 },
@@ -49,28 +51,42 @@ const Inventory = () => {
   }
 
   return (
-    <div className="flex flex-col">
-      <Header name="Inventory" />
-      <DataGrid
-        rows={products}
-        columns={columns}
-        getRowId={(row) => row.productId}
-        checkboxSelection
-        className="bg-white shadow rounded-lg border border-gray-200 mt-5 !text-gray-700"
-        sx={{
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: "#7c3aed",
-            color: "white",
-          },
-          "& .MuiCheckbox-root": {
-            color: "#7c3aed",
-          },
-          "& .MuiDataGrid-row:hover": {
-            backgroundColor: "#f3e8ff",
-          },
-        }}
-      />
-    </div>
+    <PageTransition>
+      <div className="flex flex-col">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Header name="Inventory" />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <DataGrid
+            rows={products}
+            columns={columns}
+            getRowId={(row) => row.productId}
+            checkboxSelection
+            className="bg-white shadow rounded-lg border border-gray-200 mt-5 !text-gray-700"
+            sx={{
+              "& .MuiDataGrid-columnHeaders": {
+                backgroundColor: "#7c3aed",
+                color: "white",
+              },
+              "& .MuiCheckbox-root": {
+                color: "#7c3aed",
+              },
+              "& .MuiDataGrid-row:hover": {
+                backgroundColor: "#f3e8ff",
+              },
+            }}
+          />
+        </motion.div>
+      </div>
+    </PageTransition>
   );
 };
 

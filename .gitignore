@@ -70,3 +70,7 @@ logs/
 *.backup
 *.bak
 
+# Personal progress tracking
+MY_PROGRESS.md
+NOTES.md
+

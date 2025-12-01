@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/stockpilot-logo.svg" type="image/svg+xml" />
+        <link rel="icon" href="/StockPilotLogo.svg" type="image/svg+xml" />
       </head>
       <body className={inter.className}>
         <DashboardWrapper>{children}</DashboardWrapper>

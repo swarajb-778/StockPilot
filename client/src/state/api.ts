@@ -6,6 +6,8 @@ export interface Product {
   price: number;
   rating?: number;
   stockQuantity: number;
+  imageUrl?: string;
+  description?: string;
 }
 
 export interface NewProduct {
@@ -13,6 +15,8 @@ export interface NewProduct {
   price: number;
   rating?: number;
   stockQuantity: number;
+  imageUrl?: string;
+  description?: string;
 }
 
 export interface SalesSummary {
@@ -56,10 +60,28 @@ export interface User {
   email: string;
 }
 
+export interface Notification {
+  notificationId: string;
+  userId?: string;
+  type: "stock_alert" | "user_activity" | "system";
+  title: string;
+  message: string;
+  isRead: boolean;
+  createdAt: string;
+  user?: {
+    name: string;
+    email: string;
+  };
+}
+
+export interface UnreadCount {
+  count: number;
+}
+
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL }),
   reducerPath: "api",
-  tagTypes: ["DashboardMetrics", "Products", "Users", "Expenses"],
+  tagTypes: ["DashboardMetrics", "Products", "Users", "Expenses", "Notifications"],
   endpoints: (build) => ({
     getDashboardMetrics: build.query<DashboardMetrics, void>({
       query: () => "/dashboard",
@@ -88,6 +110,39 @@ export const api = createApi({
       query: () => "/expenses",
       providesTags: ["Expenses"],
     }),
+    // Notification endpoints
+    getNotifications: build.query<Notification[], { type?: string; limit?: number } | void>({
+      query: (params) => ({
+        url: "/notifications",
+        params: params || {},
+      }),
+      providesTags: ["Notifications"],
+    }),
+    getUnreadNotificationCount: build.query<UnreadCount, void>({
+      query: () => "/notifications/unread-count",
+      providesTags: ["Notifications"],
+    }),
+    markNotificationAsRead: build.mutation<Notification, string>({
+      query: (notificationId) => ({
+        url: `/notifications/${notificationId}/read`,
+        method: "PATCH",
+      }),
+      invalidatesTags: ["Notifications"],
+    }),
+    markAllNotificationsAsRead: build.mutation<{ message: string }, void>({
+      query: () => ({
+        url: "/notifications/mark-all-read",
+        method: "POST",
+      }),
+      invalidatesTags: ["Notifications"],
+    }),
+    deleteNotification: build.mutation<{ message: string }, string>({
+      query: (notificationId) => ({
+        url: `/notifications/${notificationId}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Notifications"],
+    }),
   }),
 });
 
@@ -97,4 +152,9 @@ export const {
   useCreateProductMutation,
   useGetUsersQuery,
   useGetExpensesByCategoryQuery,
+  useGetNotificationsQuery,
+  useGetUnreadNotificationCountQuery,
+  useMarkNotificationAsReadMutation,
+  useMarkAllNotificationsAsReadMutation,
+  useDeleteNotificationMutation,
 } = api;

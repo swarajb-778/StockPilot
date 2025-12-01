@@ -1,0 +1,51 @@
+[
+  {
+    "type": "stock_alert",
+    "title": "Low Stock Alert",
+    "message": "Widget A is running low on stock (5 remaining). Consider restocking soon.",
+    "isRead": false
+  },
+  {
+    "type": "stock_alert",
+    "title": "Critical Stock Level",
+    "message": "Gadget Pro has critically low stock (2 remaining). Immediate restock recommended.",
+    "isRead": false
+  },
+  {
+    "type": "user_activity",
+    "title": "New User Registration",
+    "message": "A new user 'John Smith' has registered and joined the team.",
+    "isRead": false
+  },
+  {
+    "type": "system",
+    "title": "System Update",
+    "message": "StockPilot v2.0 is now available with new features and improvements.",
+    "isRead": true
+  },
+  {
+    "type": "system",
+    "title": "Weekly Report Ready",
+    "message": "Your weekly inventory report is ready for review. Check the dashboard for details.",
+    "isRead": true
+  },
+  {
+    "type": "stock_alert",
+    "title": "Out of Stock Warning",
+    "message": "Essential Tool Kit is now out of stock. Multiple customers are waiting.",
+    "isRead": false
+  },
+  {
+    "type": "user_activity",
+    "title": "Team Member Update",
+    "message": "Sarah Johnson has updated inventory records for 15 products.",
+    "isRead": true
+  },
+  {
+    "type": "system",
+    "title": "Backup Complete",
+    "message": "Daily database backup completed successfully at 3:00 AM.",
+    "isRead": true
+  }
+]
+

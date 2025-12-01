@@ -14,9 +14,10 @@ datasource db {
 }
 
 model Users {
-  userId String @id
-  name   String
-  email  String
+  userId        String         @id
+  name          String
+  email         String
+  Notifications Notifications[]
 }
 
 model Products {
@@ -25,6 +26,8 @@ model Products {
   price         Float
   rating        Float?
   stockQuantity Int
+  imageUrl      String?
+  description   String?
   Sales         Sales[]
   Purchases     Purchases[]
 }
@@ -84,4 +87,15 @@ model ExpenseByCategory {
   amount              BigInt
   date                DateTime
   expenseSummary      ExpenseSummary @relation(fields: [expenseSummaryId], references: [expenseSummaryId])
+}
+
+model Notifications {
+  notificationId String   @id @default(uuid())
+  userId         String?
+  type           String   // 'stock_alert', 'user_activity', 'system'
+  title          String
+  message        String
+  isRead         Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  user           Users?   @relation(fields: [userId], references: [userId])
 }

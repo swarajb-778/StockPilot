@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BackgroundPaths } from "@/components/ui/background-paths";
+import { CardSpotlight } from "@/components/ui/card-spotlight";
 
 export default function SignUpPage() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -87,53 +88,63 @@ export default function SignUpPage() {
           </p>
         </motion.div>
 
-        {/* Clerk Sign Up Component */}
+        {/* CardSpotlight wrapper for Clerk Sign Up */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <SignUp
-            appearance={{
-              elements: {
-                rootBox: "mx-auto",
-                card: isDarkMode 
-                  ? "bg-black/80 backdrop-blur-xl border border-white/10 shadow-2xl"
-                  : "bg-white/80 backdrop-blur-xl border border-neutral-200 shadow-2xl",
-                headerTitle: isDarkMode ? "text-white" : "text-neutral-900",
-                headerSubtitle: isDarkMode ? "text-neutral-300" : "text-neutral-600",
-                socialButtonsBlockButton: isDarkMode
-                  ? "bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all"
-                  : "bg-neutral-100 border border-neutral-200 text-neutral-900 hover:bg-neutral-200 transition-all",
-                socialButtonsBlockButtonText: isDarkMode ? "text-white" : "text-neutral-900",
-                dividerLine: isDarkMode ? "bg-white/20" : "bg-neutral-200",
-                dividerText: isDarkMode ? "text-neutral-400" : "text-neutral-500",
-                formFieldLabel: isDarkMode ? "text-neutral-300" : "text-neutral-700",
-                formFieldInput: isDarkMode
-                  ? "bg-white/10 border-white/20 text-white placeholder:text-neutral-400 focus:border-purple-500 focus:ring-purple-500/20"
-                  : "bg-neutral-100 border-neutral-200 text-neutral-900 placeholder:text-neutral-400 focus:border-purple-500 focus:ring-purple-500/20",
-                formButtonPrimary:
-                  "bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 transition-all shadow-lg shadow-purple-500/30",
-                footerActionLink: isDarkMode 
-                  ? "text-purple-400 hover:text-purple-300"
-                  : "text-purple-600 hover:text-purple-700",
-                identityPreviewText: isDarkMode ? "text-white" : "text-neutral-900",
-                identityPreviewEditButton: isDarkMode ? "text-purple-400" : "text-purple-600",
-                formFieldInputShowPasswordButton: isDarkMode ? "text-neutral-400" : "text-neutral-500",
-                otpCodeFieldInput: isDarkMode
-                  ? "bg-white/10 border-white/20 text-white"
-                  : "bg-neutral-100 border-neutral-200 text-neutral-900",
-              },
-              layout: {
-                socialButtonsPlacement: "bottom",
-                socialButtonsVariant: "iconButton",
-              },
-            }}
-            routing="path"
-            path="/sign-up"
-            signInUrl="/sign-in"
-            forceRedirectUrl="/dashboard"
-          />
+          <CardSpotlight
+            className={`p-0 rounded-2xl overflow-hidden ${
+              isDarkMode 
+                ? 'bg-black/90 border-white/10' 
+                : 'bg-white/90 border-neutral-200'
+            }`}
+            radius={400}
+            color={isDarkMode ? "#1e1e1e" : "#f5f5f5"}
+          >
+            <SignUp
+              appearance={{
+                elements: {
+                  rootBox: "mx-auto relative z-10",
+                  card: "bg-transparent shadow-none border-0 p-6",
+                  headerTitle: isDarkMode ? "text-white" : "text-neutral-900",
+                  headerSubtitle: isDarkMode ? "text-neutral-300" : "text-neutral-600",
+                  socialButtonsBlockButton: isDarkMode
+                    ? "bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all"
+                    : "bg-neutral-100 border border-neutral-200 text-neutral-900 hover:bg-neutral-200 transition-all",
+                  socialButtonsBlockButtonText: isDarkMode ? "text-white" : "text-neutral-900",
+                  dividerLine: isDarkMode ? "bg-white/20" : "bg-neutral-200",
+                  dividerText: isDarkMode ? "text-neutral-400" : "text-neutral-500",
+                  formFieldLabel: isDarkMode ? "text-neutral-300" : "text-neutral-700",
+                  formFieldInput: isDarkMode
+                    ? "bg-white/10 border-white/20 text-white placeholder:text-neutral-400 focus:border-purple-500 focus:ring-purple-500/20"
+                    : "bg-neutral-100 border-neutral-200 text-neutral-900 placeholder:text-neutral-400 focus:border-purple-500 focus:ring-purple-500/20",
+                  formButtonPrimary:
+                    "bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 transition-all shadow-lg shadow-purple-500/30",
+                  footerActionLink: isDarkMode 
+                    ? "text-purple-400 hover:text-purple-300"
+                    : "text-purple-600 hover:text-purple-700",
+                  identityPreviewText: isDarkMode ? "text-white" : "text-neutral-900",
+                  identityPreviewEditButton: isDarkMode ? "text-purple-400" : "text-purple-600",
+                  formFieldInputShowPasswordButton: isDarkMode ? "text-neutral-400" : "text-neutral-500",
+                  otpCodeFieldInput: isDarkMode
+                    ? "bg-white/10 border-white/20 text-white"
+                    : "bg-neutral-100 border-neutral-200 text-neutral-900",
+                  footer: isDarkMode ? "bg-transparent" : "bg-transparent",
+                  footerAction: isDarkMode ? "bg-transparent" : "bg-transparent",
+                },
+                layout: {
+                  socialButtonsPlacement: "bottom",
+                  socialButtonsVariant: "iconButton",
+                },
+              }}
+              routing="path"
+              path="/sign-up"
+              signInUrl="/sign-in"
+              forceRedirectUrl="/dashboard"
+            />
+          </CardSpotlight>
         </motion.div>
       </motion.div>
     </div>

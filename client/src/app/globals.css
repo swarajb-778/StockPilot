@@ -132,6 +132,134 @@ html.light body {
   background: transparent !important;
 }
 
+/* Clerk Card Spotlight Integration - Make Clerk cards transparent for spotlight effect */
+/* Target all Clerk card internal styles with high specificity */
+.group\/spotlight [class*="cl-card"],
+.group\/spotlight [class*="cl-internal"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.group\/spotlight .cl-rootBox > div,
+.group\/spotlight .cl-card,
+.group\/spotlight .cl-card > div,
+.group\/spotlight [data-clerk] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Clerk footer styling for spotlight cards */
+.group\/spotlight .cl-footer,
+.group\/spotlight .cl-footerAction,
+.group\/spotlight [class*="cl-footer"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Force all Clerk internal elements to be transparent */
+.dark .group\/spotlight [class*="cl-internal"],
+.dark .group\/spotlight [class*="cl-card"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Dark mode Clerk card text styling within spotlight */
+.dark .group\/spotlight [class*="cl-headerTitle"],
+.dark .group\/spotlight [class*="cl-headerSubtitle"],
+.dark .group\/spotlight .cl-headerTitle,
+.dark .group\/spotlight .cl-headerSubtitle {
+  color: white !important;
+}
+
+.dark .group\/spotlight [class*="cl-formFieldLabel"],
+.dark .group\/spotlight .cl-formFieldLabel {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.dark .group\/spotlight [class*="cl-formFieldInput"],
+.dark .group\/spotlight .cl-formFieldInput {
+  background: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+}
+
+.dark .group\/spotlight [class*="cl-formFieldInput"]::placeholder,
+.dark .group\/spotlight .cl-formFieldInput::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.dark .group\/spotlight [class*="cl-dividerLine"],
+.dark .group\/spotlight .cl-dividerLine {
+  background: rgba(255, 255, 255, 0.2) !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.dark .group\/spotlight [class*="cl-dividerText"],
+.dark .group\/spotlight .cl-dividerText {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.dark .group\/spotlight [class*="cl-footerActionText"],
+.dark .group\/spotlight .cl-footerActionText {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark .group\/spotlight [class*="cl-footerActionLink"],
+.dark .group\/spotlight .cl-footerActionLink {
+  color: #a855f7 !important;
+}
+
+/* Light mode Clerk card text styling within spotlight */
+.light .group\/spotlight [class*="cl-internal"],
+.light .group\/spotlight [class*="cl-card"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.light .group\/spotlight [class*="cl-headerTitle"],
+.light .group\/spotlight [class*="cl-headerSubtitle"],
+.light .group\/spotlight .cl-headerTitle,
+.light .group\/spotlight .cl-headerSubtitle {
+  color: #171717 !important;
+}
+
+.light .group\/spotlight [class*="cl-formFieldLabel"],
+.light .group\/spotlight .cl-formFieldLabel {
+  color: #404040 !important;
+}
+
+.light .group\/spotlight [class*="cl-formFieldInput"],
+.light .group\/spotlight .cl-formFieldInput {
+  background: rgba(0, 0, 0, 0.05) !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #171717 !important;
+}
+
+.light .group\/spotlight [class*="cl-dividerLine"],
+.light .group\/spotlight .cl-dividerLine {
+  background: rgba(0, 0, 0, 0.1) !important;
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .group\/spotlight [class*="cl-dividerText"],
+.light .group\/spotlight .cl-dividerText {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.light .group\/spotlight [class*="cl-footerActionText"],
+.light .group\/spotlight .cl-footerActionText {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.light .group\/spotlight [class*="cl-footerActionLink"],
+.light .group\/spotlight .cl-footerActionLink {
+  color: #9333ea !important;
+}
+
 /* Ensure text visibility on dark backgrounds */
 .dark .text-visible {
   color: rgba(255, 255, 255, 0.9);

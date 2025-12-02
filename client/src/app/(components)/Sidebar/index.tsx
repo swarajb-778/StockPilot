@@ -56,17 +56,12 @@ const SidebarLink = ({
     }
   }, [index]);
 
-  // Magnetic hover effect using GSAP
+  // Subtle hover effect using GSAP
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (iconRef.current) {
-      const rect = iconRef.current.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      
       gsap.to(iconRef.current, {
-        x: x * 0.3,
-        y: y * 0.3,
-        duration: 0.3,
+        scale: 1.1,
+        duration: 0.2,
         ease: "power2.out",
       });
     }
@@ -75,10 +70,9 @@ const SidebarLink = ({
   const handleMouseLeave = useCallback(() => {
     if (iconRef.current) {
       gsap.to(iconRef.current, {
-        x: 0,
-        y: 0,
-        duration: 0.5,
-        ease: "elastic.out(1, 0.3)",
+        scale: 1,
+        duration: 0.3,
+        ease: "power2.out",
       });
     }
   }, []);

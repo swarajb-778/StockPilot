@@ -52,6 +52,8 @@ Thumbs.db
 
 # Prisma
 prisma/migrations/
+*.db
+*.db-journal
 
 # AWS
 .aws/

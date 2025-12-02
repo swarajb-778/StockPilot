@@ -331,17 +331,17 @@ export default function Home() {
         {/* Light mode animated blobs */}
         {!isDarkMode && (
           <>
-            <motion.div
+        <motion.div
               className="absolute top-0 left-0 w-[800px] h-[800px] rounded-full blur-[120px] bg-purple-400/10"
               style={{ y: backgroundY }}
               animate={{ x: [0, 100, 0], scale: [1, 1.2, 1] }}
               transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div
+        />
+        <motion.div
               className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full blur-[100px] bg-blue-400/10"
               animate={{ x: [0, -80, 0], y: [0, -50, 0], scale: [1.2, 1, 1.2] }}
               transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            />
+        />
           </>
         )}
       </div>
@@ -398,13 +398,13 @@ export default function Home() {
                     <Sun size={20} />
                   </motion.div>
                 ) : (
-                  <motion.div
+          <motion.div
                     key="moon"
                     initial={{ rotate: 90, opacity: 0 }}
                     animate={{ rotate: 0, opacity: 1 }}
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
-                  >
+          >
                     <Moon size={20} />
                   </motion.div>
                 )}
@@ -456,7 +456,7 @@ export default function Home() {
 
             {/* Main Heading */}
             <h1 className="hero-title text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
-              <span className={cn("bg-clip-text text-transparent", isDarkMode ? "bg-gradient-to-b from-white to-white/80" : "bg-gradient-to-b from-gray-900 to-gray-700")}>
+              <span className="hero-title-gradient">
                 Take Control of Your
               </span>
               <br />
@@ -492,7 +492,7 @@ export default function Home() {
                   className={cn(
                     "px-8 py-4 rounded-2xl font-semibold text-lg border-2 transition-all duration-300",
                     isDarkMode
-                      ? "bg-slate-800/50 hover:bg-slate-700/50 text-white border-slate-600 hover:border-purple-500"
+                      ? "bg-slate-800/50 hover:bg-slate-700/50 text-slate-400 border-slate-600 hover:border-purple-500"
                       : "bg-white hover:bg-gray-50 text-gray-900 border-gray-300 hover:border-purple-400 shadow-lg"
                   )}
                   whileHover={{ scale: 1.05, y: -3 }}
@@ -546,7 +546,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-          >
+              >
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
                 <StatCounter key={stat.label} value={stat.value} label={stat.label} delay={index * 0.1} isDarkMode={isDarkMode} />

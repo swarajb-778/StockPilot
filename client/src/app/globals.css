@@ -8,6 +8,54 @@
   box-sizing: border-box;
 }
 
+/* CSS Variables for theming */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 262.1 83.3% 57.8%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 262.1 83.3% 57.8%;
+  --radius: 0.75rem;
+  --black: 0, 0%, 0%;
+}
+
+.dark {
+  --background: 0 0% 1.2%;
+  --foreground: 210 40% 98%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 0 0% 3.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 262.1 83.3% 57.8%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 262.1 83.3% 57.8%;
+  --black: 0, 0%, 0%;
+}
+
 html,
 body,
 #root,
@@ -15,8 +63,44 @@ body,
   height: 100%;
   width: 100%;
   @apply text-sm;
-  @apply bg-gray-500;
-  @apply text-gray-900;
+}
+
+/* Override default background for landing page compatibility */
+html.dark,
+html.dark body {
+  background-color: #030303;
+  color: #fff;
+}
+
+html.light,
+html.light body {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+/* Typography utilities for dark mode */
+.text-foreground {
+  color: hsl(var(--foreground));
+}
+
+.text-muted-foreground {
+  color: hsl(var(--muted-foreground));
+}
+
+.bg-background {
+  background-color: hsl(var(--background));
+}
+
+.bg-card {
+  background-color: hsl(var(--card));
+}
+
+.border-border {
+  border-color: hsl(var(--border));
+}
+
+.bg-muted {
+  background-color: hsl(var(--muted));
 }
 
 @media (min-width: 768px) {
@@ -29,4 +113,85 @@ body,
   .custom-grid-rows {
     grid-template-rows: repeat(8, 7.5vh);
   }
+}
+
+/* Glow animation keyframes */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    filter: blur(20px);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(25px);
+  }
+}
+
+/* Clerk form styling for dark mode */
+.cl-internal-b3fm6y {
+  background: transparent !important;
+}
+
+/* Ensure text visibility on dark backgrounds */
+.dark .text-visible {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dark .text-visible-muted {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dark .text-visible-subtle {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Card border glow effect */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 0.4),
+    rgba(236, 72, 153, 0.4),
+    rgba(59, 130, 246, 0.4)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-border:hover::before {
+  opacity: 1;
+}
+
+/* Hero title gradient for light mode */
+.hero-title-gradient {
+  background: linear-gradient(to bottom, #111827, #374151);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Hero title gradient for dark mode */
+.dark .hero-title-gradient {
+  background: linear-gradient(90deg, hsla(212, 35%, 58%, 1) 0%, hsla(218, 32%, 80%, 1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }

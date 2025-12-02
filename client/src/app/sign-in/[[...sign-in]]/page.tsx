@@ -47,7 +47,7 @@ export default function SignInPage() {
   }
 
   return (
-    <div className={`min-h-screen flex items-center justify-center p-4 relative overflow-hidden transition-colors duration-300 ${isDarkMode ? 'bg-neutral-950' : 'bg-white'}`}>
+    <div className={`min-h-screen flex items-center justify-center p-4 relative overflow-hidden transition-colors duration-300 ${isDarkMode ? 'bg-neutral-950' : 'bg-gray-50'}`}>
       {/* Animated background paths */}
       <BackgroundPaths />
 
@@ -80,10 +80,14 @@ export default function SignInPage() {
               />
             </motion.div>
           </Link>
-          <h1 className={`text-3xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>
+          <h1 className={`text-3xl font-bold mb-2 ${
+            isDarkMode 
+              ? 'bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400' 
+              : 'text-gray-900'
+          }`}>
             Welcome to StockPilot
           </h1>
-          <p className={isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}>
+          <p className={isDarkMode ? 'text-neutral-400' : 'text-gray-600'}>
             Sign in to manage your inventory
           </p>
         </motion.div>
@@ -97,42 +101,43 @@ export default function SignInPage() {
           <CardSpotlight
             className={`p-0 rounded-2xl overflow-hidden ${
               isDarkMode 
-                ? 'bg-black/90 border-white/10' 
-                : 'bg-white/90 border-neutral-200'
+                ? 'bg-neutral-900/95 border-neutral-800' 
+                : 'bg-white/95 border-gray-200'
             }`}
             radius={400}
-            color={isDarkMode ? "#1e1e1e" : "#f5f5f5"}
+            color={isDarkMode ? "#262626" : "#e5e5e5"}
           >
             <SignIn
               appearance={{
                 elements: {
                   rootBox: "mx-auto relative z-10",
                   card: "bg-transparent shadow-none border-0 p-6",
-                  headerTitle: isDarkMode ? "text-white" : "text-neutral-900",
-                  headerSubtitle: isDarkMode ? "text-neutral-300" : "text-neutral-600",
+                  headerTitle: isDarkMode ? "text-white" : "text-gray-900",
+                  headerSubtitle: isDarkMode ? "text-neutral-400" : "text-gray-500",
                   socialButtonsBlockButton: isDarkMode
-                    ? "bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all"
-                    : "bg-neutral-100 border border-neutral-200 text-neutral-900 hover:bg-neutral-200 transition-all",
-                  socialButtonsBlockButtonText: isDarkMode ? "text-white" : "text-neutral-900",
-                  dividerLine: isDarkMode ? "bg-white/20" : "bg-neutral-200",
-                  dividerText: isDarkMode ? "text-neutral-400" : "text-neutral-500",
-                  formFieldLabel: isDarkMode ? "text-neutral-300" : "text-neutral-700",
+                    ? "bg-neutral-800/50 border border-neutral-700 text-white hover:bg-neutral-700/50 transition-all"
+                    : "bg-gray-50 border border-gray-200 text-gray-900 hover:bg-gray-100 transition-all",
+                  socialButtonsBlockButtonText: isDarkMode ? "text-white" : "text-gray-900",
+                  dividerLine: isDarkMode ? "bg-neutral-700" : "bg-gray-200",
+                  dividerText: isDarkMode ? "text-neutral-500" : "text-gray-500",
+                  formFieldLabel: isDarkMode ? "text-neutral-300" : "text-gray-700",
                   formFieldInput: isDarkMode
-                    ? "bg-white/10 border-white/20 text-white placeholder:text-neutral-400 focus:border-purple-500 focus:ring-purple-500/20"
-                    : "bg-neutral-100 border-neutral-200 text-neutral-900 placeholder:text-neutral-400 focus:border-purple-500 focus:ring-purple-500/20",
+                    ? "bg-neutral-800/50 border-neutral-700 text-white placeholder:text-neutral-500 focus:border-purple-500 focus:ring-purple-500/20"
+                    : "bg-gray-50 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:ring-purple-500/20",
                   formButtonPrimary:
-                    "bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 transition-all shadow-lg shadow-purple-500/30",
+                    "bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white transition-all shadow-lg shadow-purple-500/25",
                   footerActionLink: isDarkMode 
                     ? "text-purple-400 hover:text-purple-300"
-                    : "text-purple-600 hover:text-purple-700",
-                  identityPreviewText: isDarkMode ? "text-white" : "text-neutral-900",
+                    : "text-purple-600 hover:text-purple-500",
+                  footerActionText: isDarkMode ? "text-neutral-400" : "text-gray-500",
+                  identityPreviewText: isDarkMode ? "text-white" : "text-gray-900",
                   identityPreviewEditButton: isDarkMode ? "text-purple-400" : "text-purple-600",
-                  formFieldInputShowPasswordButton: isDarkMode ? "text-neutral-400" : "text-neutral-500",
+                  formFieldInputShowPasswordButton: isDarkMode ? "text-neutral-500" : "text-gray-500",
                   otpCodeFieldInput: isDarkMode
-                    ? "bg-white/10 border-white/20 text-white"
-                    : "bg-neutral-100 border-neutral-200 text-neutral-900",
-                  footer: isDarkMode ? "bg-transparent" : "bg-transparent",
-                  footerAction: isDarkMode ? "bg-transparent" : "bg-transparent",
+                    ? "bg-neutral-800/50 border-neutral-700 text-white"
+                    : "bg-gray-50 border-gray-200 text-gray-900",
+                  footer: "bg-transparent",
+                  footerAction: "bg-transparent",
                 },
                 layout: {
                   socialButtonsPlacement: "bottom",

@@ -158,87 +158,156 @@ html.light body {
   background-color: transparent !important;
 }
 
-/* Force all Clerk internal elements to be transparent */
+/* ============================================ */
+/* DARK MODE - Clerk card styling within spotlight */
+/* ============================================ */
 .dark .group\/spotlight [class*="cl-internal"],
 .dark .group\/spotlight [class*="cl-card"] {
   background: transparent !important;
   background-color: transparent !important;
 }
 
-/* Dark mode Clerk card text styling within spotlight */
+/* Dark mode header text - white for visibility */
 .dark .group\/spotlight [class*="cl-headerTitle"],
-.dark .group\/spotlight [class*="cl-headerSubtitle"],
-.dark .group\/spotlight .cl-headerTitle,
-.dark .group\/spotlight .cl-headerSubtitle {
+.dark .group\/spotlight .cl-headerTitle {
   color: white !important;
 }
 
-.dark .group\/spotlight [class*="cl-formFieldLabel"],
-.dark .group\/spotlight .cl-formFieldLabel {
-  color: rgba(255, 255, 255, 0.8) !important;
+.dark .group\/spotlight [class*="cl-headerSubtitle"],
+.dark .group\/spotlight .cl-headerSubtitle {
+  color: #a1a1aa !important;
 }
 
+/* Dark mode form labels */
+.dark .group\/spotlight [class*="cl-formFieldLabel"],
+.dark .group\/spotlight .cl-formFieldLabel {
+  color: #d4d4d8 !important;
+}
+
+/* Dark mode form inputs */
 .dark .group\/spotlight [class*="cl-formFieldInput"],
-.dark .group\/spotlight .cl-formFieldInput {
-  background: rgba(255, 255, 255, 0.1) !important;
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
+.dark .group\/spotlight .cl-formFieldInput,
+.dark .group\/spotlight input {
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
   color: white !important;
 }
 
 .dark .group\/spotlight [class*="cl-formFieldInput"]::placeholder,
-.dark .group\/spotlight .cl-formFieldInput::placeholder {
-  color: rgba(255, 255, 255, 0.5) !important;
+.dark .group\/spotlight .cl-formFieldInput::placeholder,
+.dark .group\/spotlight input::placeholder {
+  color: #71717a !important;
 }
 
+/* Dark mode divider */
 .dark .group\/spotlight [class*="cl-dividerLine"],
 .dark .group\/spotlight .cl-dividerLine {
-  background: rgba(255, 255, 255, 0.2) !important;
-  background-color: rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
 }
 
 .dark .group\/spotlight [class*="cl-dividerText"],
 .dark .group\/spotlight .cl-dividerText {
-  color: rgba(255, 255, 255, 0.5) !important;
+  color: #71717a !important;
 }
 
+/* Dark mode footer text */
 .dark .group\/spotlight [class*="cl-footerActionText"],
 .dark .group\/spotlight .cl-footerActionText {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: #a1a1aa !important;
 }
 
+/* Dark mode links - purple accent */
 .dark .group\/spotlight [class*="cl-footerActionLink"],
 .dark .group\/spotlight .cl-footerActionLink {
   color: #a855f7 !important;
 }
 
-/* Light mode Clerk card text styling within spotlight */
+.dark .group\/spotlight [class*="cl-footerActionLink"]:hover,
+.dark .group\/spotlight .cl-footerActionLink:hover {
+  color: #c084fc !important;
+}
+
+/* Dark mode primary button - purple gradient matching landing page */
+.dark .group\/spotlight [class*="cl-formButtonPrimary"],
+.dark .group\/spotlight .cl-formButtonPrimary,
+.dark .group\/spotlight button[data-localization-key*="continue"],
+.dark .group\/spotlight button[data-localization-key*="signIn"],
+.dark .group\/spotlight button[data-localization-key*="signUp"] {
+  background: linear-gradient(to right, #9333ea, #7c3aed) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.3) !important;
+}
+
+.dark .group\/spotlight [class*="cl-formButtonPrimary"]:hover,
+.dark .group\/spotlight .cl-formButtonPrimary:hover {
+  background: linear-gradient(to right, #a855f7, #8b5cf6) !important;
+}
+
+/* Dark mode social buttons */
+.dark .group\/spotlight [class*="cl-socialButtonsBlockButton"],
+.dark .group\/spotlight .cl-socialButtonsBlockButton {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: white !important;
+}
+
+.dark .group\/spotlight [class*="cl-socialButtonsBlockButton"]:hover,
+.dark .group\/spotlight .cl-socialButtonsBlockButton:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Dark mode show password button */
+.dark .group\/spotlight [class*="cl-formFieldInputShowPasswordButton"],
+.dark .group\/spotlight .cl-formFieldInputShowPasswordButton {
+  color: #71717a !important;
+}
+
+/* ============================================ */
+/* LIGHT MODE - Clerk card styling within spotlight */
+/* ============================================ */
 .light .group\/spotlight [class*="cl-internal"],
 .light .group\/spotlight [class*="cl-card"] {
   background: transparent !important;
   background-color: transparent !important;
 }
 
+/* Light mode header text - dark for visibility */
 .light .group\/spotlight [class*="cl-headerTitle"],
-.light .group\/spotlight [class*="cl-headerSubtitle"],
-.light .group\/spotlight .cl-headerTitle,
-.light .group\/spotlight .cl-headerSubtitle {
+.light .group\/spotlight .cl-headerTitle {
   color: #171717 !important;
 }
 
+.light .group\/spotlight [class*="cl-headerSubtitle"],
+.light .group\/spotlight .cl-headerSubtitle {
+  color: #525252 !important;
+}
+
+/* Light mode form labels */
 .light .group\/spotlight [class*="cl-formFieldLabel"],
 .light .group\/spotlight .cl-formFieldLabel {
   color: #404040 !important;
 }
 
+/* Light mode form inputs */
 .light .group\/spotlight [class*="cl-formFieldInput"],
-.light .group\/spotlight .cl-formFieldInput {
-  background: rgba(0, 0, 0, 0.05) !important;
-  background-color: rgba(0, 0, 0, 0.05) !important;
+.light .group\/spotlight .cl-formFieldInput,
+.light .group\/spotlight input {
+  background: rgba(0, 0, 0, 0.03) !important;
+  background-color: rgba(0, 0, 0, 0.03) !important;
   border-color: rgba(0, 0, 0, 0.1) !important;
   color: #171717 !important;
 }
 
+.light .group\/spotlight [class*="cl-formFieldInput"]::placeholder,
+.light .group\/spotlight .cl-formFieldInput::placeholder,
+.light .group\/spotlight input::placeholder {
+  color: #a3a3a3 !important;
+}
+
+/* Light mode divider */
 .light .group\/spotlight [class*="cl-dividerLine"],
 .light .group\/spotlight .cl-dividerLine {
   background: rgba(0, 0, 0, 0.1) !important;
@@ -247,17 +316,73 @@ html.light body {
 
 .light .group\/spotlight [class*="cl-dividerText"],
 .light .group\/spotlight .cl-dividerText {
-  color: rgba(0, 0, 0, 0.5) !important;
+  color: #737373 !important;
 }
 
+/* Light mode footer text */
 .light .group\/spotlight [class*="cl-footerActionText"],
 .light .group\/spotlight .cl-footerActionText {
-  color: rgba(0, 0, 0, 0.7) !important;
+  color: #525252 !important;
 }
 
+/* Light mode links - purple accent */
 .light .group\/spotlight [class*="cl-footerActionLink"],
 .light .group\/spotlight .cl-footerActionLink {
   color: #9333ea !important;
+}
+
+.light .group\/spotlight [class*="cl-footerActionLink"]:hover,
+.light .group\/spotlight .cl-footerActionLink:hover {
+  color: #7c3aed !important;
+}
+
+/* Light mode primary button - purple gradient matching landing page */
+.light .group\/spotlight [class*="cl-formButtonPrimary"],
+.light .group\/spotlight .cl-formButtonPrimary,
+.light .group\/spotlight button[data-localization-key*="continue"],
+.light .group\/spotlight button[data-localization-key*="signIn"],
+.light .group\/spotlight button[data-localization-key*="signUp"] {
+  background: linear-gradient(to right, #9333ea, #7c3aed) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.25) !important;
+}
+
+.light .group\/spotlight [class*="cl-formButtonPrimary"]:hover,
+.light .group\/spotlight .cl-formButtonPrimary:hover {
+  background: linear-gradient(to right, #a855f7, #8b5cf6) !important;
+}
+
+/* Light mode social buttons */
+.light .group\/spotlight [class*="cl-socialButtonsBlockButton"],
+.light .group\/spotlight .cl-socialButtonsBlockButton {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #171717 !important;
+}
+
+.light .group\/spotlight [class*="cl-socialButtonsBlockButton"]:hover,
+.light .group\/spotlight .cl-socialButtonsBlockButton:hover {
+  background: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Light mode show password button */
+.light .group\/spotlight [class*="cl-formFieldInputShowPasswordButton"],
+.light .group\/spotlight .cl-formFieldInputShowPasswordButton {
+  color: #737373 !important;
+}
+
+/* ============================================ */
+/* Clerk secured by footer styling */
+/* ============================================ */
+.dark .group\/spotlight .cl-internal-1dauvpw,
+.dark .group\/spotlight [class*="cl-footerPages"] {
+  color: #71717a !important;
+}
+
+.light .group\/spotlight .cl-internal-1dauvpw,
+.light .group\/spotlight [class*="cl-footerPages"] {
+  color: #737373 !important;
 }
 
 /* Ensure text visibility on dark backgrounds */

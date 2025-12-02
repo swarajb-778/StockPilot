@@ -219,3 +219,5 @@ components/
 
 **Note:** This structure will evolve as the project grows. Start simple and refactor as needed!
 
+
+

@@ -23,7 +23,7 @@ async function deleteAllData() {
     const model: any = prisma[capitalizedModel as keyof typeof prisma];
     if (model) {
       try {
-        await model.deleteMany({});
+      await model.deleteMany({});
         console.log(`Cleared data from ${capitalizedModel}`);
       } catch (error) {
         console.log(`Skipping ${capitalizedModel} - might not exist yet`);
@@ -72,9 +72,9 @@ async function main() {
 
     for (const data of jsonData) {
       try {
-        await model.create({
-          data,
-        });
+      await model.create({
+        data,
+      });
       } catch (error) {
         console.error(`Error seeding ${modelName}:`, error);
       }

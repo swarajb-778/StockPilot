@@ -4,49 +4,13 @@ import { SignUp } from "@clerk/nextjs";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { BackgroundPaths } from "@/components/ui/background-paths";
 
 export default function SignUpPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-20 right-20 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 left-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-1/3 right-1/3 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"
-          animate={{
-            x: [0, -50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
+    <div className="min-h-screen bg-white dark:bg-neutral-950 flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Animated background paths */}
+      <BackgroundPaths />
 
       {/* Content */}
       <motion.div
@@ -77,10 +41,10 @@ export default function SignUpPage() {
               />
             </motion.div>
           </Link>
-          <h1 className="text-3xl font-bold text-white mb-2">
+          <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neutral-900 to-neutral-700/80 dark:from-white dark:to-white/80 mb-2">
             Join StockPilot
           </h1>
-          <p className="text-gray-400">Create your account to get started</p>
+          <p className="text-neutral-600 dark:text-neutral-400">Create your account to get started</p>
         </motion.div>
 
         {/* Clerk Sign Up Component */}
@@ -93,24 +57,24 @@ export default function SignUpPage() {
             appearance={{
               elements: {
                 rootBox: "mx-auto",
-                card: "bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl",
-                headerTitle: "text-white",
-                headerSubtitle: "text-gray-300",
+                card: "bg-white/80 dark:bg-black/80 backdrop-blur-xl border border-neutral-200 dark:border-white/10 shadow-2xl",
+                headerTitle: "text-neutral-900 dark:text-white",
+                headerSubtitle: "text-neutral-600 dark:text-neutral-300",
                 socialButtonsBlockButton:
-                  "bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all",
-                socialButtonsBlockButtonText: "text-white",
-                dividerLine: "bg-white/20",
-                dividerText: "text-gray-400",
-                formFieldLabel: "text-gray-300",
+                  "bg-neutral-100 dark:bg-white/10 border border-neutral-200 dark:border-white/20 text-neutral-900 dark:text-white hover:bg-neutral-200 dark:hover:bg-white/20 transition-all",
+                socialButtonsBlockButtonText: "text-neutral-900 dark:text-white",
+                dividerLine: "bg-neutral-200 dark:bg-white/20",
+                dividerText: "text-neutral-500 dark:text-neutral-400",
+                formFieldLabel: "text-neutral-700 dark:text-neutral-300",
                 formFieldInput:
-                  "bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-purple-500 focus:ring-purple-500/20",
+                  "bg-neutral-100 dark:bg-white/10 border-neutral-200 dark:border-white/20 text-neutral-900 dark:text-white placeholder:text-neutral-400 focus:border-purple-500 focus:ring-purple-500/20",
                 formButtonPrimary:
                   "bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 transition-all shadow-lg shadow-purple-500/30",
-                footerActionLink: "text-purple-400 hover:text-purple-300",
-                identityPreviewText: "text-white",
-                identityPreviewEditButton: "text-purple-400",
-                formFieldInputShowPasswordButton: "text-gray-400",
-                otpCodeFieldInput: "bg-white/10 border-white/20 text-white",
+                footerActionLink: "text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300",
+                identityPreviewText: "text-neutral-900 dark:text-white",
+                identityPreviewEditButton: "text-purple-600 dark:text-purple-400",
+                formFieldInputShowPasswordButton: "text-neutral-500 dark:text-neutral-400",
+                otpCodeFieldInput: "bg-neutral-100 dark:bg-white/10 border-neutral-200 dark:border-white/20 text-neutral-900 dark:text-white",
               },
               layout: {
                 socialButtonsPlacement: "bottom",

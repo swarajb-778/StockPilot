@@ -23,6 +23,13 @@ import {
 import { PersistGate } from "redux-persist/integration/react";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
+// Loading component for PersistGate
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center min-h-screen bg-gray-50">
+    <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin" />
+  </div>
+);
+
 /* REDUX PERSISTENCE */
 const createNoopStorage = () => {
   return {
@@ -89,7 +96,7 @@ export default function StoreProvider({
 
   return (
     <Provider store={storeRef.current}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={<LoadingFallback />} persistor={persistor}>
         {children}
       </PersistGate>
     </Provider>

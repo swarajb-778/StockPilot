@@ -2,16 +2,16 @@
 
 import { SignIn } from "@clerk/nextjs";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function SignInPage() {
   return (
-    <div className="min-h-screen bg-[#030303] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-20 left-20 w-72 h-72 bg-purple-500/15 rounded-full blur-3xl"
+          className="absolute top-20 left-20 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -23,7 +23,7 @@ export default function SignInPage() {
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl"
+          className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.3, 0.5, 0.3],
@@ -64,23 +64,23 @@ export default function SignInPage() {
         >
           <Link href="/">
             <motion.div
-              className="inline-flex items-center justify-center mb-4"
-              whileHover={{ scale: 1.1 }}
+              className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-700 mb-4 shadow-lg shadow-purple-500/30 cursor-pointer"
+              whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
               <Image
                 src="/StockPilotLogo.svg"
                 alt="StockPilot Logo"
-                width={64}
-                height={64}
-                className="w-16 h-16"
+                width={40}
+                height={40}
+                className="w-10 h-10"
               />
             </motion.div>
           </Link>
           <h1 className="text-3xl font-bold text-white mb-2">
-            Welcome to <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">StockPilot</span>
+            Welcome to StockPilot
           </h1>
-          <p className="text-slate-400">Sign in to manage your inventory</p>
+          <p className="text-gray-400">Sign in to manage your inventory</p>
         </motion.div>
 
         {/* Clerk Sign In Component */}
@@ -93,25 +93,24 @@ export default function SignInPage() {
             appearance={{
               elements: {
                 rootBox: "mx-auto",
-                card: "bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 shadow-2xl",
+                card: "bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl",
                 headerTitle: "text-white",
-                headerSubtitle: "text-slate-300",
+                headerSubtitle: "text-gray-300",
                 socialButtonsBlockButton:
-                  "bg-slate-800/50 border border-slate-600/50 text-white hover:bg-slate-700/50 transition-all",
+                  "bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all",
                 socialButtonsBlockButtonText: "text-white",
-                dividerLine: "bg-slate-600",
-                dividerText: "text-slate-400",
-                formFieldLabel: "text-slate-300",
+                dividerLine: "bg-white/20",
+                dividerText: "text-gray-400",
+                formFieldLabel: "text-gray-300",
                 formFieldInput:
-                  "bg-slate-800/50 border-slate-600/50 text-white placeholder:text-slate-500 focus:border-purple-500 focus:ring-purple-500/20",
+                  "bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-purple-500 focus:ring-purple-500/20",
                 formButtonPrimary:
-                  "bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 transition-all shadow-lg shadow-purple-500/30",
+                  "bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 transition-all shadow-lg shadow-purple-500/30",
                 footerActionLink: "text-purple-400 hover:text-purple-300",
                 identityPreviewText: "text-white",
                 identityPreviewEditButton: "text-purple-400",
-                formFieldInputShowPasswordButton: "text-slate-400 hover:text-slate-300",
-                otpCodeFieldInput: "bg-slate-800/50 border-slate-600/50 text-white",
-                footer: "hidden",
+                formFieldInputShowPasswordButton: "text-gray-400",
+                otpCodeFieldInput: "bg-white/10 border-white/20 text-white",
               },
               layout: {
                 socialButtonsPlacement: "bottom",
@@ -124,19 +123,6 @@ export default function SignInPage() {
             forceRedirectUrl="/dashboard"
           />
         </motion.div>
-
-        {/* Sign up link */}
-        <motion.p
-          className="text-center mt-6 text-slate-400"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          Don&apos;t have an account?{" "}
-          <Link href="/sign-up" className="text-purple-400 hover:text-purple-300 font-medium transition-colors">
-            Sign up
-          </Link>
-        </motion.p>
       </motion.div>
     </div>
   );

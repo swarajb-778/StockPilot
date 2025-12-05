@@ -34,3 +34,4 @@ export function ClerkAuthProvider({ children }: ProvidersProps) {
     </ClerkProvider>
   );
 }
+

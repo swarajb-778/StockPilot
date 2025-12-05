@@ -11,7 +11,7 @@ applications:
         # Pre-build: Install dependencies
         preBuild:
           commands:
-            - npm ci
+            - npm install --legacy-peer-deps
         # Build: Build the Next.js application
         build:
           commands:
@@ -40,7 +40,7 @@ applications:
 #    - Any Clerk/Cognito keys
 #
 # 2. Build Commands:
-#    - npm ci: Clean install (faster, uses package-lock.json)
+#    - npm install: Install dependencies (generates package-lock.json)
 #    - npm run build: Builds Next.js for production
 #
 # 3. Artifacts:

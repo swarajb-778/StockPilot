@@ -59,6 +59,12 @@ prisma/migrations/
 .aws/
 *.pem
 *.key
+aws-credentials*
+.env.aws*
+
+# AWS Deployment Secrets (never commit)
+**/secrets.json
+**/credentials.json
 
 # Logs
 logs/

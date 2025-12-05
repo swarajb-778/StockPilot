@@ -7,8 +7,9 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { ClerkAuthProvider } from "@/app/providers";
 
-export default function SignUpPage() {
+function SignUpContent() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [mounted, setMounted] = useState(false);
 
@@ -153,5 +154,13 @@ export default function SignUpPage() {
         </motion.div>
       </motion.div>
     </div>
+  );
+}
+
+export default function SignUpPage() {
+  return (
+    <ClerkAuthProvider>
+      <SignUpContent />
+    </ClerkAuthProvider>
   );
 }

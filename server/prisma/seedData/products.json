@@ -5,7 +5,7 @@
     "price": 129.99,
     "rating": 4.8,
     "stockQuantity": 245,
-    "imageUrl": "http://localhost:8000/images/Nike1.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/Nike1.png",
     "description": "Iconic Air Max 90 featuring visible Air cushioning and classic design. Perfect for everyday comfort and style."
   },
   {
@@ -14,7 +14,7 @@
     "price": 110.00,
     "rating": 4.9,
     "stockQuantity": 520,
-    "imageUrl": "http://localhost:8000/images/Nike2.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/Nike2.png",
     "description": "The legendary AF1 with premium leather upper and Air-Sole unit for comfort that never goes out of style."
   },
   {
@@ -23,7 +23,7 @@
     "price": 115.00,
     "rating": 4.7,
     "stockQuantity": 180,
-    "imageUrl": "http://localhost:8000/images/nike3.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike3.png",
     "description": "The hoops icon returns with classic styling and modern comfort. Features padded, low-cut collar."
   },
   {
@@ -32,7 +32,7 @@
     "price": 125.00,
     "rating": 4.6,
     "stockQuantity": 312,
-    "imageUrl": "http://localhost:8000/images/nike4.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike4.png",
     "description": "A fresh take on the classic that started it all. Premium leather and iconic Wings logo."
   },
   {
@@ -41,7 +41,7 @@
     "price": 105.00,
     "rating": 4.5,
     "stockQuantity": 198,
-    "imageUrl": "http://localhost:8000/images/nike5.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike5.png",
     "description": "Vintage vibes with exposed foam on the tongue and a crisp leather upper for throwback style."
   },
   {
@@ -50,7 +50,7 @@
     "price": 160.00,
     "rating": 4.4,
     "stockQuantity": 156,
-    "imageUrl": "http://localhost:8000/images/nike6.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike6.png",
     "description": "Designed to help keep you running. Nike React foam and a wider platform offer stability and cushioning."
   },
   {
@@ -59,7 +59,7 @@
     "price": 250.00,
     "rating": 4.9,
     "stockQuantity": 78,
-    "imageUrl": "http://localhost:8000/images/nike7.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike7.png",
     "description": "Built for record-breaking speed. ZoomX foam and full-length carbon fiber plate for race day performance."
   },
   {
@@ -68,7 +68,7 @@
     "price": 130.00,
     "rating": 4.6,
     "stockQuantity": 425,
-    "imageUrl": "http://localhost:8000/images/nike8.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike8.png",
     "description": "The running icon with responsive cushioning. Perfect for daily training and long-distance runs."
   },
   {
@@ -77,7 +77,7 @@
     "price": 175.00,
     "rating": 4.7,
     "stockQuantity": 167,
-    "imageUrl": "http://localhost:8000/images/nike9.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike9.png",
     "description": "The future of Air with full-length visible Air unit. Sleek lines inspired by Japanese bullet trains."
   },
   {
@@ -86,7 +86,7 @@
     "price": 175.00,
     "rating": 4.5,
     "stockQuantity": 234,
-    "imageUrl": "http://localhost:8000/images/nike10.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike10.png",
     "description": "Bold, aggressive design with Tuned Air for responsive cushioning. A streetwear essential."
   },
   {
@@ -95,7 +95,7 @@
     "price": 285.00,
     "rating": 4.8,
     "stockQuantity": 45,
-    "imageUrl": "http://localhost:8000/images/nike11.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike11.png",
     "description": "Elite racing shoe with AtomKnit 3.0 upper and dual Air Zoom units for explosive energy return."
   },
   {
@@ -104,7 +104,7 @@
     "price": 100.00,
     "rating": 4.3,
     "stockQuantity": 289,
-    "imageUrl": "http://localhost:8000/images/nike12.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike12.png",
     "description": "Natural motion meets cushioned support. Flexible grooves let your foot move freely."
   },
   {
@@ -113,7 +113,7 @@
     "price": 150.00,
     "rating": 4.7,
     "stockQuantity": 203,
-    "imageUrl": "http://localhost:8000/images/nike13.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike13.png",
     "description": "The gold standard for training. Stable base and flexible forefoot for any workout."
   },
   {
@@ -122,7 +122,7 @@
     "price": 130.00,
     "rating": 4.4,
     "stockQuantity": 176,
-    "imageUrl": "http://localhost:8000/images/nike14.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike14.png",
     "description": "Iconic neoprene bootie with mesh panels for a snug, sock-like fit and all-day comfort."
   },
   {
@@ -131,7 +131,7 @@
     "price": 115.00,
     "rating": 4.6,
     "stockQuantity": 142,
-    "imageUrl": "http://localhost:8000/images/nike15.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike15.png",
     "description": "Skate-ready with Zoom Air insole and padded tongue for board feel and impact protection."
   },
   {
@@ -140,7 +140,7 @@
     "price": 210.00,
     "rating": 4.5,
     "stockQuantity": 98,
-    "imageUrl": "http://localhost:8000/images/nike16.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike16.png",
     "description": "Walk on Air with the revolutionary VaporMax Air unit. Lightweight and ultra-bouncy."
   },
   {
@@ -149,7 +149,7 @@
     "price": 75.00,
     "rating": 4.2,
     "stockQuantity": 456,
-    "imageUrl": "http://localhost:8000/images/nike17.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike17.png",
     "description": "Basketball-inspired style for everyday wear. Classic design meets modern comfort."
   },
   {
@@ -158,7 +158,7 @@
     "price": 100.00,
     "rating": 4.3,
     "stockQuantity": 267,
-    "imageUrl": "http://localhost:8000/images/nike18.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike18.png",
     "description": "Heritage-inspired design with modern materials. Waffle outsole provides excellent traction."
   },
   {
@@ -167,7 +167,7 @@
     "price": 150.00,
     "rating": 4.6,
     "stockQuantity": 334,
-    "imageUrl": "http://localhost:8000/images/nike19.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike19.png",
     "description": "Big Air, big style. Features Nike's largest heel Air unit yet for maximum cushioning."
   },
   {
@@ -176,7 +176,7 @@
     "price": 160.00,
     "rating": 4.5,
     "stockQuantity": 189,
-    "imageUrl": "http://localhost:8000/images/nike20.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike20.png",
     "description": "Fast training shoe with responsive ZoomX foam. Perfect for tempo runs and race prep."
   },
   {
@@ -185,7 +185,7 @@
     "price": 210.00,
     "rating": 4.8,
     "stockQuantity": 67,
-    "imageUrl": "http://localhost:8000/images/nike21.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike21.png",
     "description": "The beloved Jordan 4 with signature wing eyelets and mesh panels. A timeless classic."
   },
   {
@@ -194,7 +194,7 @@
     "price": 180.00,
     "rating": 4.7,
     "stockQuantity": 156,
-    "imageUrl": "http://localhost:8000/images/nike22.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike22.png",
     "description": "Maximum cushioning for high mileage. ZoomX foam provides incredible energy return."
   },
   {
@@ -203,7 +203,7 @@
     "price": 90.00,
     "rating": 4.4,
     "stockQuantity": 378,
-    "imageUrl": "http://localhost:8000/images/nike23.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike23.png",
     "description": "The OG Nike running shoe reborn as a style icon. Classic herringbone outsole pattern."
   },
   {
@@ -212,7 +212,7 @@
     "price": 90.00,
     "rating": 4.2,
     "stockQuantity": 445,
-    "imageUrl": "http://localhost:8000/images/nike24.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike24.png",
     "description": "Retro-inspired runner with visible Air cushioning. Lightweight and comfortable for all day."
   },
   {
@@ -221,7 +221,7 @@
     "price": 70.00,
     "rating": 4.1,
     "stockQuantity": 567,
-    "imageUrl": "http://localhost:8000/images/nike25.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike25.png",
     "description": "Soft foam cushioning and breathable mesh for comfortable everyday running."
   },
   {
@@ -230,7 +230,7 @@
     "price": 130.00,
     "rating": 4.5,
     "stockQuantity": 223,
-    "imageUrl": "http://localhost:8000/images/nike26.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike26.png",
     "description": "T-shirt for your feet. Stretchy mesh upper provides a snug, adaptive fit."
   },
   {
@@ -239,7 +239,7 @@
     "price": 125.00,
     "rating": 4.6,
     "stockQuantity": 134,
-    "imageUrl": "http://localhost:8000/images/nike27.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike27.png",
     "description": "High-top heritage with basketball DNA. Premium leather and padded collar for support."
   },
   {
@@ -248,7 +248,7 @@
     "price": 140.00,
     "rating": 4.4,
     "stockQuantity": 198,
-    "imageUrl": "http://localhost:8000/images/nike28.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike28.png",
     "description": "Stability running shoe with dual-density foam. Perfect for overpronators."
   },
   {
@@ -257,7 +257,7 @@
     "price": 95.00,
     "rating": 4.3,
     "stockQuantity": 312,
-    "imageUrl": "http://localhost:8000/images/nike29.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike29.png",
     "description": "Tennis-inspired lifestyle shoe with clean lines and gum rubber outsole."
   },
   {
@@ -266,7 +266,7 @@
     "price": 150.00,
     "rating": 4.4,
     "stockQuantity": 187,
-    "imageUrl": "http://localhost:8000/images/nike30.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike30.png",
     "description": "Eco-friendly Air Max with at least 10% recycled materials. Trail-ready outsole."
   },
   {
@@ -275,7 +275,7 @@
     "price": 225.00,
     "rating": 4.9,
     "stockQuantity": 34,
-    "imageUrl": "http://localhost:8000/images/nike31.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike31.png",
     "description": "The most iconic Jordan ever. Patent leather shine and carbon fiber plate."
   },
   {
@@ -284,7 +284,7 @@
     "price": 75.00,
     "rating": 4.0,
     "stockQuantity": 623,
-    "imageUrl": "http://localhost:8000/images/nike32.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike32.png",
     "description": "The dad shoe legend. Comfortable cushioning for all-day support and style."
   },
   {
@@ -293,7 +293,7 @@
     "price": 185.00,
     "rating": 4.6,
     "stockQuantity": 89,
-    "imageUrl": "http://localhost:8000/images/nike33.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike33.png",
     "description": "Trail-ready with React foam and rugged outsole. All Conditions Gear for any terrain."
   },
   {
@@ -302,7 +302,7 @@
     "price": 115.00,
     "rating": 4.3,
     "stockQuantity": 234,
-    "imageUrl": "http://localhost:8000/images/nike34.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike34.png",
     "description": "Futuristic design with layered materials. Bold style for the fashion-forward."
   },
   {
@@ -311,7 +311,7 @@
     "price": 110.00,
     "rating": 4.4,
     "stockQuantity": 278,
-    "imageUrl": "http://localhost:8000/images/nike35.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike35.png",
     "description": "2000s running aesthetic reborn. Mesh and leather upper with visible Air cushioning."
   },
   {
@@ -320,7 +320,7 @@
     "price": 130.00,
     "rating": 4.2,
     "stockQuantity": 145,
-    "imageUrl": "http://localhost:8000/images/nike36.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike36.png",
     "description": "Split-toe design inspired by Kenyan runners. Unique look with comfortable fit."
   },
   {
@@ -329,7 +329,7 @@
     "price": 145.00,
     "rating": 4.5,
     "stockQuantity": 167,
-    "imageUrl": "http://localhost:8000/images/nike37.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike37.png",
     "description": "Trail running champion with aggressive outsole and rock plate protection."
   },
   {
@@ -338,7 +338,7 @@
     "price": 135.00,
     "rating": 4.3,
     "stockQuantity": 298,
-    "imageUrl": "http://localhost:8000/images/nike38.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike38.png",
     "description": "New-school Air Max with sustainably-made materials. Fresh style, lower impact."
   },
   {
@@ -347,7 +347,7 @@
     "price": 150.00,
     "rating": 4.6,
     "stockQuantity": 212,
-    "imageUrl": "http://localhost:8000/images/nike39.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike39.png",
     "description": "Plush cushioning for long runs. ZoomX foam delivers responsive comfort mile after mile."
   },
   {
@@ -356,7 +356,7 @@
     "price": 200.00,
     "rating": 4.7,
     "stockQuantity": 56,
-    "imageUrl": "http://localhost:8000/images/nike40.png",
+    "imageUrl": "https://d1k3m3m0ppxz1z.cloudfront.net/images/nike40.png",
     "description": "King James' signature shoe with Zoom Air Strobel and cable-based containment system."
   }
 ]

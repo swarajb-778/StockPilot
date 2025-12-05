@@ -104,7 +104,7 @@
 
 <div align="center">
 
-![AWS Architecture](assets/aws-architecture-diagram.png)
+![AWS Architecture](assets/AWS_Architecture.png)
 
 *StockPilot AWS Cloud Infrastructure - Built with 9 Free Tier Services*
 
@@ -303,16 +303,19 @@ The following alarms are configured to monitor application health:
 ## 🖼️ Screenshots
 
 ### Landing Page
-![Landing Page](assets/screenshot-landing.png)
+![Landing Page](assets/LandingPage.png)
 
 ### Dashboard
-![Dashboard](assets/screenshot-dashboard.png)
+![Dashboard](assets/Dashboard.png)
 
-### Products Page
-![Products](assets/screenshot-products.png)
+### Inventory Management
+![Inventory](assets/Inventory.png)
 
-### Product Details Modal
-![Product Details](assets/screenshot-product-detail.png)
+### Inventory Details
+<div align="center">
+<img src="assets/Inventory1.png" alt="Inventory Details 1" width="48%">
+<img src="assets/Inventory2.png" alt="Inventory Details 2" width="48%">
+</div>
 
 ---
 

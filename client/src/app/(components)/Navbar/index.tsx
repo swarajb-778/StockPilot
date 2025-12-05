@@ -2,7 +2,7 @@
 
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsDarkMode, setIsSidebarCollapsed } from "@/state";
-import { Bell, Menu, Moon, Settings, Sun, Search } from "lucide-react";
+import { Bell, Menu, Moon, Settings, Sun } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,7 +18,6 @@ const Navbar = () => {
   );
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
   const navRef = useRef(null);
-  const searchRef = useRef(null);
   const { user, isLoaded } = useUser();
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   
@@ -35,22 +34,6 @@ const Navbar = () => {
           opacity: 1,
           duration: 0.6,
           ease: "power3.out",
-        }
-      );
-    }
-  }, []);
-
-  useEffect(() => {
-    if (searchRef.current) {
-      gsap.fromTo(
-        searchRef.current,
-        { scale: 0.8, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 0.5,
-          delay: 0.2,
-          ease: "back.out(1.7)",
         }
       );
     }
@@ -85,27 +68,6 @@ const Navbar = () => {
         >
           <Menu className="w-4 h-4" />
         </motion.button>
-
-        <motion.div
-          ref={searchRef}
-          className="relative"
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
-        >
-          <motion.input
-            type="search"
-            placeholder="Search products & inventory..."
-            className="pl-10 pr-4 py-2 w-50 md:w-60 border-2 border-gray-300 bg-white rounded-lg focus:outline-none focus:border-purple-500 transition-all"
-            whileFocus={{
-              borderColor: "#9333ea",
-              boxShadow: "0 0 0 3px rgba(147, 51, 234, 0.1)",
-            }}
-          />
-
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Search className="text-gray-500" size={20} />
-          </div>
-        </motion.div>
       </div>
 
       {/* RIGHT SIDE */}

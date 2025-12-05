@@ -17,12 +17,16 @@ A full-stack inventory management dashboard application built with modern web te
 - **Express.js** - Web framework for Node.js
 - **Static File Serving** - Product image hosting
 
-### AWS Services
-- **RDS** - Relational Database Service
-- **EC2** - Elastic Compute Cloud
-- **API Gateway** - API management
-- **Amplify** - Frontend deployment
-- **S3** - Object storage
+### AWS Services (9 Free Tier Services)
+- **AWS Amplify** - Frontend hosting with CI/CD
+- **Amazon EC2** - Backend server (t3.micro)
+- **Amazon RDS** - PostgreSQL database (db.t4g.micro)
+- **Amazon CloudFront** - CDN for HTTPS and caching
+- **Amazon S3** - Product image storage
+- **Amazon CloudWatch** - Monitoring and logging
+- **AWS Systems Manager** - Parameter Store for secrets
+- **Amazon SNS** - Notifications
+- **Amazon Cognito** - User authentication (optional)
 
 ## 📋 Features
 
@@ -93,7 +97,31 @@ StockPilot/
 
 ## 🌐 Deployment
 
-Detailed deployment instructions for AWS services will be added as the project progresses.
+### AWS Architecture
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   CloudFront    │────▶│    Amplify      │     │      S3         │
+│   (CDN/HTTPS)   │     │   (Frontend)    │     │   (Images)      │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+         │
+         ▼
+┌─────────────────┐     ┌─────────────────┐
+│      EC2        │────▶│      RDS        │
+│   (Backend)     │     │  (PostgreSQL)   │
+└─────────────────┘     └─────────────────┘
+```
+
+### Live URLs
+- **Frontend**: Deployed on AWS Amplify
+- **Backend API**: Running on EC2 with PM2
+- **Database**: Amazon RDS PostgreSQL
+
+### Environment Variables
+Configure the following in your deployment:
+- `DATABASE_URL` - PostgreSQL connection string
+- `NEXT_PUBLIC_API_BASE_URL` - Backend API URL
+- `CLERK_SECRET_KEY` - Clerk authentication
+- `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` - Clerk public key
 
 ## 📝 License
 
@@ -109,7 +137,7 @@ For questions or feedback, please reach out to [your-email@example.com]
 
 ---
 
-**Status:** 🚧 Under Development
+**Status:** ✅ Deployed on AWS
 
-
+**AWS Services Active:** Amplify, EC2, CloudFront, RDS (4/9)
 

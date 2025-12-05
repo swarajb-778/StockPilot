@@ -15,6 +15,7 @@ A full-stack inventory management dashboard application built with modern web te
 - **Node.js** - Runtime environment
 - **Prisma** - Modern ORM for database operations
 - **Express.js** - Web framework for Node.js
+- **Static File Serving** - Product image hosting
 
 ### AWS Services
 - **RDS** - Relational Database Service
@@ -26,12 +27,15 @@ A full-stack inventory management dashboard application built with modern web te
 ## 📋 Features
 
 - Comprehensive inventory tracking
-- Real-time dashboard analytics
+- Real-time dashboard analytics with enhanced visualizations
 - User management
-- Product management
+- Product management with image support
 - Order processing
+- Expense tracking with detailed summaries
 - Responsive design
 - Cloud-based deployment
+- Static file serving for product images
+- Enhanced dashboard cards with improved data aggregation
 
 ## 🛠️ Setup Instructions
 

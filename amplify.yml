@@ -1,0 +1,57 @@
+# =====================================================
+# AWS Amplify Build Settings for StockPilot
+# =====================================================
+# This file configures how Amplify builds and deploys your Next.js app
+# Place this in the root of your repository
+
+version: 1
+applications:
+  - frontend:
+      phases:
+        # Pre-build: Install dependencies
+        preBuild:
+          commands:
+            - npm ci
+        # Build: Build the Next.js application
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        # Output directory for Next.js
+        baseDirectory: .next
+        files:
+          - '**/*'
+      cache:
+        # Cache node_modules and Next.js cache for faster builds
+        paths:
+          - node_modules/**/*
+          - .next/cache/**/*
+    # The app root is the client folder
+    appRoot: client
+
+# =====================================================
+# Build Settings Notes:
+# =====================================================
+# 
+# 1. Environment Variables:
+#    Set these in Amplify Console → App settings → Environment variables:
+#    - NEXT_PUBLIC_API_BASE_URL (your EC2 backend URL)
+#    - NEXT_PUBLIC_CLOUDFRONT_URL (your CloudFront CDN URL)
+#    - Any Clerk/Cognito keys
+#
+# 2. Build Commands:
+#    - npm ci: Clean install (faster, uses package-lock.json)
+#    - npm run build: Builds Next.js for production
+#
+# 3. Artifacts:
+#    - .next folder contains the built Next.js app
+#    - Amplify automatically handles SSR deployment
+#
+# 4. Caching:
+#    - node_modules: Speeds up dependency installation
+#    - .next/cache: Speeds up incremental builds
+#
+# 5. Custom Domain (optional):
+#    - Go to Amplify Console → Domain management
+#    - Add your custom domain
+#    - Amplify provides free SSL certificates

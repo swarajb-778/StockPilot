@@ -1,0 +1,35 @@
+# =====================================================
+# AWS Amplify Environment Variables for StockPilot
+# =====================================================
+# Add these in Amplify Console → App settings → Environment variables
+# These are "NEXT_PUBLIC_" prefixed so they're available in the browser
+
+# =====================================================
+# Backend API URL
+# =====================================================
+# Your EC2 public IP or domain
+NEXT_PUBLIC_API_BASE_URL=http://your-ec2-public-ip:8000
+
+# =====================================================
+# CloudFront CDN URL for Images
+# =====================================================
+# Get this from CloudFront Console → Distributions → Domain Name
+NEXT_PUBLIC_CLOUDFRONT_URL=https://your-distribution-id.cloudfront.net
+
+# =====================================================
+# Amazon Cognito (if using Cognito instead of Clerk)
+# =====================================================
+# Get these from Cognito Console → User Pools → Your Pool
+NEXT_PUBLIC_COGNITO_USER_POOL_ID=us-east-1_xxxxxxxxx
+NEXT_PUBLIC_COGNITO_CLIENT_ID=xxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# =====================================================
+# Clerk Authentication (if keeping Clerk)
+# =====================================================
+# Keep these if you're continuing to use Clerk
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_xxxxxxxxxxxxx
+CLERK_SECRET_KEY=sk_test_xxxxxxxxxxxxx
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard

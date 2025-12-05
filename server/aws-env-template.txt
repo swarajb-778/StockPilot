@@ -1,0 +1,70 @@
+# =====================================================
+# AWS Environment Variables Template for StockPilot
+# =====================================================
+# 1. Copy this file to .env
+# 2. Fill in your values
+# 3. NEVER commit the actual .env file to Git!
+
+# =====================================================
+# 3️⃣ AMAZON RDS - Database
+# =====================================================
+# Get this from RDS Console → Databases → Your DB → Endpoint
+DATABASE_URL="postgresql://username:password@your-rds-endpoint.region.rds.amazonaws.com:5432/stockpilot?schema=public"
+
+# =====================================================
+# AWS General Configuration
+# =====================================================
+AWS_REGION=us-east-1
+# Get these from IAM Console → Users → Your User → Security Credentials
+AWS_ACCESS_KEY_ID=your-access-key-id
+AWS_SECRET_ACCESS_KEY=your-secret-access-key
+
+# =====================================================
+# 4️⃣ AMAZON S3 - Storage
+# =====================================================
+# Get this from S3 Console → Your Bucket Name
+S3_BUCKET_NAME=stockpilot-images-your-account-id
+
+# =====================================================
+# 5️⃣ AMAZON CLOUDFRONT - CDN
+# =====================================================
+# Get this from CloudFront Console → Distributions → Domain Name
+# Format: d1234abcdef.cloudfront.net (without https://)
+CLOUDFRONT_DOMAIN=your-distribution-id.cloudfront.net
+
+# =====================================================
+# 6️⃣ AMAZON COGNITO - Authentication
+# =====================================================
+# Get these from Cognito Console → User Pools → Your Pool
+COGNITO_USER_POOL_ID=us-east-1_xxxxxxxxx
+COGNITO_CLIENT_ID=xxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# =====================================================
+# 7️⃣ AMAZON CLOUDWATCH - Logging
+# =====================================================
+# Log group name (will be created if doesn't exist)
+CLOUDWATCH_LOG_GROUP=/stockpilot/backend
+
+# Get this from EC2 Console → Instances → Instance ID
+# Or run: curl http://169.254.169.254/latest/meta-data/instance-id
+EC2_INSTANCE_ID=i-xxxxxxxxxxxxxxxxx
+
+# =====================================================
+# 8️⃣ AWS SYSTEMS MANAGER PARAMETER STORE
+# =====================================================
+# Set to "true" to load config from Parameter Store instead of .env
+USE_PARAMETER_STORE=false
+
+# =====================================================
+# 9️⃣ AMAZON SNS - Notifications
+# =====================================================
+# Create topics in SNS Console and copy ARNs here
+SNS_STOCK_ALERTS_TOPIC_ARN=arn:aws:sns:us-east-1:123456789012:stockpilot-stock-alerts
+SNS_SYSTEM_ALERTS_TOPIC_ARN=arn:aws:sns:us-east-1:123456789012:stockpilot-system-alerts
+SNS_ORDER_NOTIFICATIONS_TOPIC_ARN=arn:aws:sns:us-east-1:123456789012:stockpilot-order-notifications
+
+# =====================================================
+# Server Configuration
+# =====================================================
+PORT=8000
+NODE_ENV=production

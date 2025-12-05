@@ -1,7 +1,5 @@
 "use client";
 
-import { useAuth } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion";
 import Link from "next/link";
@@ -132,8 +130,6 @@ const StatCounter = ({
 };
 
 export default function Home() {
-  const { isLoaded, isSignedIn } = useAuth();
-  const router = useRouter();
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [mounted, setMounted] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -195,17 +191,11 @@ export default function Home() {
     }
   }, [mounted]);
 
-  useEffect(() => {
-    if (isLoaded && isSignedIn) {
-      router.push("/dashboard");
-    }
-  }, [isLoaded, isSignedIn, router]);
-
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
 
-  if (!isLoaded || !mounted) {
+  if (!mounted) {
     return (
       <div className={cn("min-h-screen flex items-center justify-center", isDarkMode ? "bg-[#030303]" : "bg-gray-50")}>
         <motion.div

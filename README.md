@@ -37,8 +37,6 @@
 |---------|-----|-------------|
 | **Frontend (Amplify)** | [https://main.d47qigns6kh3.amplifyapp.com](https://main.d47qigns6kh3.amplifyapp.com) | Next.js application hosted on AWS Amplify |
 | **Backend API (EC2)** | [http://54.176.27.132:8000](http://54.176.27.132:8000) | Express.js REST API on EC2 |
-| **CloudFront CDN** | [https://d1k3m3m0ppxz1z.cloudfront.net](https://d1k3m3m0ppxz1z.cloudfront.net) | CDN for faster content delivery |
-| **Product Images (S3)** | [https://stockpilot-images-317635640887.s3.us-west-1.amazonaws.com/products](https://stockpilot-images-317635640887.s3.us-west-1.amazonaws.com/products) | S3 bucket for product images |
 
 ---
 
@@ -104,50 +102,13 @@
 
 ## 🏗️ AWS Architecture
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────┐
-│                                  AWS CLOUD                                       │
-├─────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                  │
-│    ┌──────────────┐        ┌──────────────┐        ┌──────────────────────┐     │
-│    │   USERS      │───────▶│  CloudFront  │───────▶│   AWS Amplify        │     │
-│    │   (Browser)  │        │   (CDN)      │        │   (Next.js Frontend) │     │
-│    └──────────────┘        └──────────────┘        └──────────────────────┘     │
-│           │                       │                                              │
-│           │                       │                                              │
-│           ▼                       ▼                                              │
-│    ┌──────────────────────────────────────────────────────────────────────┐     │
-│    │                    VIRTUAL PRIVATE CLOUD (VPC)                        │     │
-│    │  ┌────────────────────────────────────────────────────────────────┐  │     │
-│    │  │                      PUBLIC SUBNET                              │  │     │
-│    │  │   ┌──────────────────────────────────────────────────────┐     │  │     │
-│    │  │   │             Amazon EC2 (t2.micro)                     │     │  │     │
-│    │  │   │             - Express.js Backend                      │     │  │     │
-│    │  │   │             - IP: 54.176.27.132                       │     │  │     │
-│    │  │   └──────────────────────────────────────────────────────┘     │  │     │
-│    │  └────────────────────────────────────────────────────────────────┘  │     │
-│    │  ┌────────────────────────────────────────────────────────────────┐  │     │
-│    │  │                     PRIVATE SUBNET                              │  │     │
-│    │  │   ┌──────────────────────────────────────────────────────┐     │  │     │
-│    │  │   │            Amazon RDS (db.t3.micro)                   │     │  │     │
-│    │  │   │            - PostgreSQL Database                      │     │  │     │
-│    │  │   │            - stockpilot-db                            │     │  │     │
-│    │  │   └──────────────────────────────────────────────────────┘     │  │     │
-│    │  └────────────────────────────────────────────────────────────────┘  │     │
-│    └──────────────────────────────────────────────────────────────────────┘     │
-│                                                                                  │
-│    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌────────────┐   │
-│    │  Amazon S3   │    │  Amazon SES  │    │  CloudWatch  │    │   SNS      │   │
-│    │  (Images)    │    │  (Emails)    │    │  (Logs)      │    │  (Alerts)  │   │
-│    └──────────────┘    └──────────────┘    └──────────────┘    └────────────┘   │
-│                                                                                  │
-│    ┌──────────────────────────────────────────────────────────────────────┐     │
-│    │              AWS Systems Manager Parameter Store                      │     │
-│    │              (Configuration & Secrets Management)                     │     │
-│    └──────────────────────────────────────────────────────────────────────┘     │
-│                                                                                  │
-└─────────────────────────────────────────────────────────────────────────────────┘
-```
+<div align="center">
+
+![AWS Architecture](assets/aws-architecture-diagram.png)
+
+*StockPilot AWS Cloud Infrastructure - Built with 9 Free Tier Services*
+
+</div>
 
 ---
 
@@ -180,8 +141,6 @@ StockPilot/
 │   ├── Nike_Items/                  # Product images
 │   └── package.json
 │
-├── AWS_DEPLOYMENT_GUIDE.md          # Detailed AWS setup guide
-├── AMPLIFY_SETUP_GUIDE.md           # Amplify-specific setup
 └── README.md                        # This file
 ```
 
@@ -201,7 +160,7 @@ StockPilot/
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/YOUR_USERNAME/StockPilot.git
+git clone https://github.com/swarajb-778/StockPilot.git
 cd StockPilot
 ```
 
@@ -262,22 +221,22 @@ npm run dev
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `NEXT_PUBLIC_API_BASE_URL` | Backend API URL | `http://54.176.27.132:8000` |
-| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk public key | `pk_live_...` |
-| `CLERK_SECRET_KEY` | Clerk secret key | `sk_live_...` |
-| `NEXT_PUBLIC_S3_PRODUCTS_URL` | S3 products URL | `https://stockpilot-images-317635640887.s3.us-west-1.amazonaws.com/products` |
-| `NEXT_PUBLIC_CLOUDFRONT_URL` | CloudFront CDN URL | `https://d1k3m3m0ppxz1z.cloudfront.net` |
+| `NEXT_PUBLIC_API_BASE_URL` | Backend API URL | `https://api.example.com` |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk public key | `pk_test_Y2xlcmsuZXhhbXBsZS5jb20k` |
+| `CLERK_SECRET_KEY` | Clerk secret key | `sk_test_Rk9PQkFSMTIzNDU2Nzg5MGFiY2Rl` |
+| `NEXT_PUBLIC_S3_PRODUCTS_URL` | S3 products URL | `https://my-bucket.s3.us-east-1.amazonaws.com/products` |
+| `NEXT_PUBLIC_CLOUDFRONT_URL` | CloudFront CDN URL | `https://d1abc2def3ghij.cloudfront.net` |
 
 ### Server Environment Variables
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `DATABASE_URL` | PostgreSQL connection string | `postgresql://user:pass@host:5432/db` |
+| `DATABASE_URL` | PostgreSQL connection string | `postgresql://admin:SecureP@ss123@db.example.com:5432/inventory_db` |
 | `PORT` | Server port | `8000` |
-| `S3_BUCKET_NAME` | S3 bucket name | `stockpilot-images-317635640887` |
-| `S3_REGION` | AWS region | `us-west-1` |
-| `SNS_STOCK_ALERTS_TOPIC_ARN` | SNS topic for stock alerts | `arn:aws:sns:us-west-1:...` |
-| `SNS_SYSTEM_ALERTS_TOPIC_ARN` | SNS topic for system alerts | `arn:aws:sns:us-west-1:...` |
+| `S3_BUCKET_NAME` | S3 bucket name | `my-app-images-bucket-12345` |
+| `S3_REGION` | AWS region | `us-east-1` |
+| `SNS_STOCK_ALERTS_TOPIC_ARN` | SNS topic for stock alerts | `arn:aws:sns:us-east-1:123456789012:stock-alerts` |
+| `SNS_SYSTEM_ALERTS_TOPIC_ARN` | SNS topic for system alerts | `arn:aws:sns:us-east-1:123456789012:system-alerts` |
 
 ---
 
@@ -343,16 +302,17 @@ The following alarms are configured to monitor application health:
 
 ## 🖼️ Screenshots
 
-<details>
-<summary>Click to view screenshots</summary>
+### Landing Page
+![Landing Page](assets/screenshot-landing.png)
 
 ### Dashboard
-![Dashboard](assets/image-32c67bc1-4e9a-4bc4-9475-beb1e8132b1f.png)
+![Dashboard](assets/screenshot-dashboard.png)
 
-### Inventory Management
-![Inventory](assets/image-6287ffa1-d04f-43cb-866f-3c05755f0bbb.png)
+### Products Page
+![Products](assets/screenshot-products.png)
 
-</details>
+### Product Details Modal
+![Product Details](assets/screenshot-product-detail.png)
 
 ---
 
@@ -366,15 +326,13 @@ Contributions are welcome! Please follow these steps:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
-
 ---
 
 ## 📧 Contact
 
 **Swaraj Bangar**
 - Email: [Swarajbangar77@gmail.com](mailto:Swarajbangar77@gmail.com)
-- Project Link: [https://github.com/YOUR_USERNAME/StockPilot](https://github.com/YOUR_USERNAME/StockPilot)
+- Project Link: [https://github.com/swarajb-778/StockPilot](https://github.com/swarajb-778/StockPilot)
 - Live Demo: [https://main.d47qigns6kh3.amplifyapp.com](https://main.d47qigns6kh3.amplifyapp.com)
 
 ---

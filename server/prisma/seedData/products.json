@@ -1,247 +1,362 @@
 [
   {
     "productId": "d35623ee-bef6-42b2-8776-2f99f8bb4782",
-    "name": "Pinkscale Blazing Star",
-    "price": 456.04,
-    "rating": 2.25,
-    "stockQuantity": 124834
+    "name": "Nike Air Max 90",
+    "price": 129.99,
+    "rating": 4.8,
+    "stockQuantity": 245,
+    "imageUrl": "http://localhost:8000/images/Nike1.png",
+    "description": "Iconic Air Max 90 featuring visible Air cushioning and classic design. Perfect for everyday comfort and style."
   },
   {
     "productId": "8ac1ac77-7358-425e-be16-0bdde9f02e59",
-    "name": "Gila Milkvetch",
-    "price": 899.05,
-    "rating": 3.56,
-    "stockQuantity": 799402
+    "name": "Nike Air Force 1 '07",
+    "price": 110.00,
+    "rating": 4.9,
+    "stockQuantity": 520,
+    "imageUrl": "http://localhost:8000/images/Nike2.png",
+    "description": "The legendary AF1 with premium leather upper and Air-Sole unit for comfort that never goes out of style."
   },
   {
     "productId": "1afc136b-4d9f-4e8e-aace-8e1df908a404",
-    "name": "Rocky Mountain Zinnia",
-    "price": 264.37,
-    "rating": 3.23,
-    "stockQuantity": 842192
+    "name": "Nike Dunk Low Retro",
+    "price": 115.00,
+    "rating": 4.7,
+    "stockQuantity": 180,
+    "imageUrl": "http://localhost:8000/images/nike3.png",
+    "description": "The hoops icon returns with classic styling and modern comfort. Features padded, low-cut collar."
   },
   {
     "productId": "af84cc12-4fea-4f58-aece-f2ce92ca9580",
-    "name": "Guadalupe Suncup",
-    "price": 555.93,
-    "rating": 4.09,
-    "stockQuantity": 236333
+    "name": "Nike Air Jordan 1 Mid",
+    "price": 125.00,
+    "rating": 4.6,
+    "stockQuantity": 312,
+    "imageUrl": "http://localhost:8000/images/nike4.png",
+    "description": "A fresh take on the classic that started it all. Premium leather and iconic Wings logo."
   },
   {
     "productId": "86e3bb1c-2f5d-4774-98f3-4df7cddd0a0f",
-    "name": "Saline Phlox",
-    "price": 82.62,
-    "rating": 4.8,
-    "stockQuantity": 601208
+    "name": "Nike Blazer Mid '77",
+    "price": 105.00,
+    "rating": 4.5,
+    "stockQuantity": 198,
+    "imageUrl": "http://localhost:8000/images/nike5.png",
+    "description": "Vintage vibes with exposed foam on the tongue and a crisp leather upper for throwback style."
   },
   {
     "productId": "26b017c6-06d8-443f-9b4a-d6b1cee6f4c0",
-    "name": "Common Brighteyes",
-    "price": 435.44,
-    "rating": 0.27,
-    "stockQuantity": 124068
+    "name": "Nike React Infinity Run 3",
+    "price": 160.00,
+    "rating": 4.4,
+    "stockQuantity": 156,
+    "imageUrl": "http://localhost:8000/images/nike6.png",
+    "description": "Designed to help keep you running. Nike React foam and a wider platform offer stability and cushioning."
   },
   {
     "productId": "440c9e80-6bf8-4eb3-b2d2-f81936d67de3",
-    "name": "Vermejo Phlox",
-    "price": 759.15,
-    "rating": 2.46,
-    "stockQuantity": 234525
+    "name": "Nike ZoomX Vaporfly Next% 2",
+    "price": 250.00,
+    "rating": 4.9,
+    "stockQuantity": 78,
+    "imageUrl": "http://localhost:8000/images/nike7.png",
+    "description": "Built for record-breaking speed. ZoomX foam and full-length carbon fiber plate for race day performance."
   },
   {
     "productId": "98255f4e-40a6-470f-89a5-0792729f8947",
-    "name": "Purple Marshlocks",
-    "price": 974.99,
-    "rating": 4.82,
-    "stockQuantity": 739009
+    "name": "Nike Pegasus 40",
+    "price": 130.00,
+    "rating": 4.6,
+    "stockQuantity": 425,
+    "imageUrl": "http://localhost:8000/images/nike8.png",
+    "description": "The running icon with responsive cushioning. Perfect for daily training and long-distance runs."
   },
   {
     "productId": "2a339fb2-f9f3-43bc-a85a-b217a0a38f12",
-    "name": "Hamatocaulis Moss",
-    "price": 639.9,
-    "rating": 1.17,
-    "stockQuantity": 754285
+    "name": "Nike Air Max 97",
+    "price": 175.00,
+    "rating": 4.7,
+    "stockQuantity": 167,
+    "imageUrl": "http://localhost:8000/images/nike9.png",
+    "description": "The future of Air with full-length visible Air unit. Sleek lines inspired by Japanese bullet trains."
   },
   {
     "productId": "8a8391b2-b4ac-4847-b652-66ffd8d65875",
-    "name": "Wax Myrtle",
-    "price": 62.95,
-    "rating": 4.6,
-    "stockQuantity": 205240
+    "name": "Nike Air Max Plus",
+    "price": 175.00,
+    "rating": 4.5,
+    "stockQuantity": 234,
+    "imageUrl": "http://localhost:8000/images/nike10.png",
+    "description": "Bold, aggressive design with Tuned Air for responsive cushioning. A streetwear essential."
   },
   {
     "productId": "be2157fb-7454-405e-9511-bf7ba81b7726",
-    "name": "Thladiantha",
-    "price": 699.0,
-    "rating": 1.65,
-    "stockQuantity": 399124
+    "name": "Nike Air Zoom Alphafly 3",
+    "price": 285.00,
+    "rating": 4.8,
+    "stockQuantity": 45,
+    "imageUrl": "http://localhost:8000/images/nike11.png",
+    "description": "Elite racing shoe with AtomKnit 3.0 upper and dual Air Zoom units for explosive energy return."
   },
   {
     "productId": "fdf1ba3d-fa06-4ce5-90ff-d081c5d37176",
-    "name": "Common Tarweed",
-    "price": 899.61,
-    "rating": 2.39,
-    "stockQuantity": 196884
+    "name": "Nike Free Run 5.0",
+    "price": 100.00,
+    "rating": 4.3,
+    "stockQuantity": 289,
+    "imageUrl": "http://localhost:8000/images/nike12.png",
+    "description": "Natural motion meets cushioned support. Flexible grooves let your foot move freely."
   },
   {
     "productId": "afded6df-058f-477d-9878-e0e0b1d3dff3",
-    "name": "Smooth Phlox",
-    "price": 575.6,
-    "rating": 4.38,
-    "stockQuantity": 673658
+    "name": "Nike Metcon 9",
+    "price": 150.00,
+    "rating": 4.7,
+    "stockQuantity": 203,
+    "imageUrl": "http://localhost:8000/images/nike13.png",
+    "description": "The gold standard for training. Stable base and flexible forefoot for any workout."
   },
   {
     "productId": "daa29167-82a7-474b-9687-b8b903e7ec69",
-    "name": "Lemmon's Beggarticks",
-    "price": 492.35,
-    "rating": 1.07,
-    "stockQuantity": 205143
+    "name": "Nike Air Huarache",
+    "price": 130.00,
+    "rating": 4.4,
+    "stockQuantity": 176,
+    "imageUrl": "http://localhost:8000/images/nike14.png",
+    "description": "Iconic neoprene bootie with mesh panels for a snug, sock-like fit and all-day comfort."
   },
   {
     "productId": "ccb83982-71f3-4497-bad8-7e64c6920dc6",
-    "name": "Globe Fimbry",
-    "price": 304.69,
-    "rating": 2.62,
-    "stockQuantity": 388596
+    "name": "Nike SB Dunk Low Pro",
+    "price": 115.00,
+    "rating": 4.6,
+    "stockQuantity": 142,
+    "imageUrl": "http://localhost:8000/images/nike15.png",
+    "description": "Skate-ready with Zoom Air insole and padded tongue for board feel and impact protection."
   },
   {
     "productId": "1936d406-e89e-40e4-bff7-1827532269d4",
-    "name": "Columbia Milkvetch",
-    "price": 845.15,
-    "rating": 2.21,
-    "stockQuantity": 631658
+    "name": "Nike Air VaporMax 2023",
+    "price": 210.00,
+    "rating": 4.5,
+    "stockQuantity": 98,
+    "imageUrl": "http://localhost:8000/images/nike16.png",
+    "description": "Walk on Air with the revolutionary VaporMax Air unit. Lightweight and ultra-bouncy."
   },
   {
     "productId": "c849a535-5f8b-47e3-889c-015693a644ac",
-    "name": "Girdlepod",
-    "price": 880.09,
-    "rating": 1.49,
-    "stockQuantity": 65457
+    "name": "Nike Court Vision Low",
+    "price": 75.00,
+    "rating": 4.2,
+    "stockQuantity": 456,
+    "imageUrl": "http://localhost:8000/images/nike17.png",
+    "description": "Basketball-inspired style for everyday wear. Classic design meets modern comfort."
   },
   {
     "productId": "0c3e80ee-59b3-4fc4-b760-8b07acc2d3ae",
-    "name": "Lindley's Clerodendrum",
-    "price": 51.66,
-    "rating": 1.53,
-    "stockQuantity": 263383
+    "name": "Nike Waffle One",
+    "price": 100.00,
+    "rating": 4.3,
+    "stockQuantity": 267,
+    "imageUrl": "http://localhost:8000/images/nike18.png",
+    "description": "Heritage-inspired design with modern materials. Waffle outsole provides excellent traction."
   },
   {
     "productId": "d8f5bee3-f3eb-4071-a124-6b857e0fd798",
-    "name": "Arizonia Dry Rock Moss",
-    "price": 746.88,
-    "rating": 4.71,
-    "stockQuantity": 616812
+    "name": "Nike Air Max 270",
+    "price": 150.00,
+    "rating": 4.6,
+    "stockQuantity": 334,
+    "imageUrl": "http://localhost:8000/images/nike19.png",
+    "description": "Big Air, big style. Features Nike's largest heel Air unit yet for maximum cushioning."
   },
   {
     "productId": "8d15de86-0e4a-4414-9166-7a33610202d3",
-    "name": "Clamshell Orchid",
-    "price": 17.1,
-    "rating": 0.79,
-    "stockQuantity": 604774
+    "name": "Nike Zoom Fly 5",
+    "price": 160.00,
+    "rating": 4.5,
+    "stockQuantity": 189,
+    "imageUrl": "http://localhost:8000/images/nike20.png",
+    "description": "Fast training shoe with responsive ZoomX foam. Perfect for tempo runs and race prep."
   },
   {
     "productId": "ea8fd0b9-c2d9-4d43-9c23-44cb99d079bb",
-    "name": "Fourleaf Mare's-tail",
-    "price": 905.04,
-    "rating": 3.71,
-    "stockQuantity": 909107
+    "name": "Nike Air Jordan 4 Retro",
+    "price": 210.00,
+    "rating": 4.8,
+    "stockQuantity": 67,
+    "imageUrl": "http://localhost:8000/images/nike21.png",
+    "description": "The beloved Jordan 4 with signature wing eyelets and mesh panels. A timeless classic."
   },
   {
     "productId": "25d01c80-bca1-4a00-b1d0-0fbd39ff9e89",
-    "name": "Simpson's Rosinweed",
-    "price": 184.41,
-    "rating": 1.98,
-    "stockQuantity": 953695
+    "name": "Nike Invincible 3",
+    "price": 180.00,
+    "rating": 4.7,
+    "stockQuantity": 156,
+    "imageUrl": "http://localhost:8000/images/nike22.png",
+    "description": "Maximum cushioning for high mileage. ZoomX foam provides incredible energy return."
   },
   {
     "productId": "1d6df6e3-b7ea-4507-9d66-87c6ee8ed5b9",
-    "name": "Lobelia",
-    "price": 163.6,
-    "rating": 0.81,
-    "stockQuantity": 341530
+    "name": "Nike Cortez",
+    "price": 90.00,
+    "rating": 4.4,
+    "stockQuantity": 378,
+    "imageUrl": "http://localhost:8000/images/nike23.png",
+    "description": "The OG Nike running shoe reborn as a style icon. Classic herringbone outsole pattern."
   },
   {
     "productId": "000a8c23-5bca-436c-a216-4e747a94c511",
-    "name": "Yew Plum Pine",
-    "price": 196.27,
-    "rating": 1.6,
-    "stockQuantity": 967173
+    "name": "Nike Air Max SC",
+    "price": 90.00,
+    "rating": 4.2,
+    "stockQuantity": 445,
+    "imageUrl": "http://localhost:8000/images/nike24.png",
+    "description": "Retro-inspired runner with visible Air cushioning. Lightweight and comfortable for all day."
   },
   {
     "productId": "c5b600dc-6bfb-492a-b335-c3cc8c707959",
-    "name": "Thimbleberry",
-    "price": 602.37,
-    "rating": 0.13,
-    "stockQuantity": 162208
+    "name": "Nike Revolution 6",
+    "price": 70.00,
+    "rating": 4.1,
+    "stockQuantity": 567,
+    "imageUrl": "http://localhost:8000/images/nike25.png",
+    "description": "Soft foam cushioning and breathable mesh for comfortable everyday running."
   },
   {
     "productId": "9d5fafbc-312b-47e8-ada1-283918f0c3b5",
-    "name": "Yellowturbans",
-    "price": 564.82,
-    "rating": 4.74,
-    "stockQuantity": 33021
+    "name": "Nike Air Presto",
+    "price": 130.00,
+    "rating": 4.5,
+    "stockQuantity": 223,
+    "imageUrl": "http://localhost:8000/images/nike26.png",
+    "description": "T-shirt for your feet. Stretchy mesh upper provides a snug, adaptive fit."
   },
   {
     "productId": "0114d5d4-ae48-46fa-b0ca-afe60eb88add",
-    "name": "Field Brome",
-    "price": 664.2,
-    "rating": 0.13,
-    "stockQuantity": 363992
+    "name": "Nike Dunk High Retro",
+    "price": 125.00,
+    "rating": 4.6,
+    "stockQuantity": 134,
+    "imageUrl": "http://localhost:8000/images/nike27.png",
+    "description": "High-top heritage with basketball DNA. Premium leather and padded collar for support."
   },
   {
     "productId": "e5b0da8c-148d-4680-b262-8609fb8a10da",
-    "name": "Pentas",
-    "price": 685.1,
-    "rating": 1.5,
-    "stockQuantity": 635092
+    "name": "Nike Air Zoom Structure 25",
+    "price": 140.00,
+    "rating": 4.4,
+    "stockQuantity": 198,
+    "imageUrl": "http://localhost:8000/images/nike28.png",
+    "description": "Stability running shoe with dual-density foam. Perfect for overpronators."
   },
   {
     "productId": "2be5b024-2c96-4f29-912c-c6f36353f799",
-    "name": "Strigose Beard Lichen",
-    "price": 373.81,
-    "rating": 1.06,
-    "stockQuantity": 35383
+    "name": "Nike Killshot 2",
+    "price": 95.00,
+    "rating": 4.3,
+    "stockQuantity": 312,
+    "imageUrl": "http://localhost:8000/images/nike29.png",
+    "description": "Tennis-inspired lifestyle shoe with clean lines and gum rubber outsole."
   },
   {
     "productId": "fcf2e432-62a3-4b6f-a34d-36e42a12272e",
-    "name": "Mad River Fleabane",
-    "price": 669.97,
-    "rating": 1.34,
-    "stockQuantity": 880242
+    "name": "Nike Air Max Terrascape 90",
+    "price": 150.00,
+    "rating": 4.4,
+    "stockQuantity": 187,
+    "imageUrl": "http://localhost:8000/images/nike30.png",
+    "description": "Eco-friendly Air Max with at least 10% recycled materials. Trail-ready outsole."
   },
   {
     "productId": "fc4c81e5-f1ac-40f5-8c6f-da3fbad5599d",
-    "name": "Chickenthief",
-    "price": 100.11,
-    "rating": 0.49,
-    "stockQuantity": 896782
+    "name": "Nike Air Jordan 11 Retro",
+    "price": 225.00,
+    "rating": 4.9,
+    "stockQuantity": 34,
+    "imageUrl": "http://localhost:8000/images/nike31.png",
+    "description": "The most iconic Jordan ever. Patent leather shine and carbon fiber plate."
   },
   {
     "productId": "07238d8e-0037-4972-87ca-0df206ee3e42",
-    "name": "Palmleaf Poppymallow",
-    "price": 22.99,
-    "rating": 3.42,
-    "stockQuantity": 635344
+    "name": "Nike Monarch IV",
+    "price": 75.00,
+    "rating": 4.0,
+    "stockQuantity": 623,
+    "imageUrl": "http://localhost:8000/images/nike32.png",
+    "description": "The dad shoe legend. Comfortable cushioning for all-day support and style."
   },
   {
     "productId": "154b7860-23a2-4564-ad99-1745ab7122ef",
-    "name": "Guayanan Waterclover",
-    "price": 45.45,
-    "rating": 0.34,
-    "stockQuantity": 456487
+    "name": "Nike ACG Mountain Fly 2",
+    "price": 185.00,
+    "rating": 4.6,
+    "stockQuantity": 89,
+    "imageUrl": "http://localhost:8000/images/nike33.png",
+    "description": "Trail-ready with React foam and rugged outsole. All Conditions Gear for any terrain."
   },
   {
     "productId": "8d4bf814-65d4-4df4-84cc-68911d925fdf",
-    "name": "Emory's Acacia",
-    "price": 847.6,
-    "rating": 1.79,
-    "stockQuantity": 638956
+    "name": "Nike Tech Hera",
+    "price": 115.00,
+    "rating": 4.3,
+    "stockQuantity": 234,
+    "imageUrl": "http://localhost:8000/images/nike34.png",
+    "description": "Futuristic design with layered materials. Bold style for the fashion-forward."
   },
   {
     "productId": "a52bf1bd-3d35-4cd2-849a-354e3952e2d2",
-    "name": "American Century Plant",
-    "price": 969.47,
-    "rating": 3.66,
-    "stockQuantity": 248630
+    "name": "Nike P-6000",
+    "price": 110.00,
+    "rating": 4.4,
+    "stockQuantity": 278,
+    "imageUrl": "http://localhost:8000/images/nike35.png",
+    "description": "2000s running aesthetic reborn. Mesh and leather upper with visible Air cushioning."
+  },
+  {
+    "productId": "b3e7c8d1-9f2a-4b6c-8d5e-1a2b3c4d5e6f",
+    "name": "Nike Air Rift",
+    "price": 130.00,
+    "rating": 4.2,
+    "stockQuantity": 145,
+    "imageUrl": "http://localhost:8000/images/nike36.png",
+    "description": "Split-toe design inspired by Kenyan runners. Unique look with comfortable fit."
+  },
+  {
+    "productId": "c4f8d9e2-0a3b-5c7d-9e6f-2b3c4d5e6f7a",
+    "name": "Nike Wildhorse 8",
+    "price": 145.00,
+    "rating": 4.5,
+    "stockQuantity": 167,
+    "imageUrl": "http://localhost:8000/images/nike37.png",
+    "description": "Trail running champion with aggressive outsole and rock plate protection."
+  },
+  {
+    "productId": "d5a9e0f3-1b4c-6d8e-0f7a-3c4d5e6f7a8b",
+    "name": "Nike Air Max Dawn",
+    "price": 135.00,
+    "rating": 4.3,
+    "stockQuantity": 298,
+    "imageUrl": "http://localhost:8000/images/nike38.png",
+    "description": "New-school Air Max with sustainably-made materials. Fresh style, lower impact."
+  },
+  {
+    "productId": "e6b0f1a4-2c5d-7e9f-1a8b-4d5e6f7a8b9c",
+    "name": "Nike Zoom Vomero 17",
+    "price": 150.00,
+    "rating": 4.6,
+    "stockQuantity": 212,
+    "imageUrl": "http://localhost:8000/images/nike39.png",
+    "description": "Plush cushioning for long runs. ZoomX foam delivers responsive comfort mile after mile."
+  },
+  {
+    "productId": "f7c1a2b5-3d6e-8f0a-2b9c-5e6f7a8b9c0d",
+    "name": "Nike LeBron XXI",
+    "price": 200.00,
+    "rating": 4.7,
+    "stockQuantity": 56,
+    "imageUrl": "http://localhost:8000/images/nike40.png",
+    "description": "King James' signature shoe with Zoom Air Strobel and cable-based containment system."
   }
 ]

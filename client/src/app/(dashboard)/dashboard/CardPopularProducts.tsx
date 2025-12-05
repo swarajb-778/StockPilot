@@ -1,10 +1,11 @@
 "use client";
 
-import { useGetDashboardMetricsQuery } from "@/state/api";
-import { ShoppingBag, Package, SearchX } from "lucide-react";
-import React, { useMemo } from "react";
+import { useGetDashboardMetricsQuery, Product } from "@/state/api";
+import { ShoppingBag, Package, SearchX, X, Star, TrendingUp, Boxes } from "lucide-react";
+import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Rating from "../../(components)/Rating";
+import Image from "next/image";
 
 interface CardPopularProductsProps {
   searchFilter?: string;
@@ -12,6 +13,7 @@ interface CardPopularProductsProps {
 
 const CardPopularProducts = ({ searchFilter = "" }: CardPopularProductsProps) => {
   const { data: dashboardMetrics, isLoading } = useGetDashboardMetricsQuery();
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   // Filter products based on search term
   const filteredProducts = useMemo(() => {
@@ -72,16 +74,32 @@ const CardPopularProducts = ({ searchFilter = "" }: CardPopularProductsProps) =>
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                     className="flex items-center justify-between gap-3 px-5 py-4 border-b hover:bg-gray-50 transition-colors cursor-pointer"
                     whileHover={{ x: 5 }}
+                    onClick={() => setSelectedProduct(product)}
                   >
                     <div className="flex items-center gap-3">
-                      {/* Product Image Placeholder */}
-                      <motion.div
-                        className={`w-14 h-14 rounded-lg bg-gradient-to-br ${getProductColor(product.name)} flex items-center justify-center flex-shrink-0`}
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <Package className="w-6 h-6 text-white opacity-80" />
-                      </motion.div>
+                      {/* Product Image */}
+                      {product.imageUrl ? (
+                        <motion.div
+                          className="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 relative bg-gray-100"
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Image
+                            src={product.imageUrl}
+                            alt={product.name}
+                            fill
+                            className="object-cover"
+                          />
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          className={`w-14 h-14 rounded-lg bg-gradient-to-br ${getProductColor(product.name)} flex items-center justify-center flex-shrink-0`}
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Package className="w-6 h-6 text-white opacity-80" />
+                        </motion.div>
+                      )}
                       <div className="flex flex-col justify-between gap-1">
                         <div className="font-bold text-gray-700">
                           {searchFilter ? (
@@ -108,6 +126,7 @@ const CardPopularProducts = ({ searchFilter = "" }: CardPopularProductsProps) =>
                         className="p-2 rounded-full bg-purple-100 text-purple-600 mr-2 hover:bg-purple-200 transition-colors"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
+                        onClick={(e) => e.stopPropagation()}
                       >
                         <ShoppingBag className="w-4 h-4" />
                       </motion.button>
@@ -130,7 +149,197 @@ const CardPopularProducts = ({ searchFilter = "" }: CardPopularProductsProps) =>
           </div>
         </>
       )}
+
+      {/* Product Details Modal */}
+      <AnimatePresence>
+        {selectedProduct && (
+          <ProductDetailsModal
+            product={selectedProduct}
+            onClose={() => setSelectedProduct(null)}
+            getProductColor={getProductColor}
+          />
+        )}
+      </AnimatePresence>
     </div>
+  );
+};
+
+// Product Details Modal Component
+interface ProductDetailsModalProps {
+  product: Product;
+  onClose: () => void;
+  getProductColor: (name: string) => string;
+}
+
+const ProductDetailsModal = ({ product, onClose, getProductColor }: ProductDetailsModalProps) => {
+  const stockStatus = product.stockQuantity === 0 
+    ? { label: "Out of Stock", color: "bg-red-100 text-red-700" }
+    : product.stockQuantity <= 100
+    ? { label: "Low Stock", color: "bg-orange-100 text-orange-700" }
+    : { label: "In Stock", color: "bg-green-100 text-green-700" };
+
+  const soldCount = Math.round(product.stockQuantity / 1000);
+
+  return (
+    <motion.div
+      className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <motion.div
+        className="bg-white rounded-2xl w-full max-w-lg max-h-[90vh] overflow-hidden shadow-2xl"
+        initial={{ scale: 0.9, y: 50, opacity: 0 }}
+        animate={{ scale: 1, y: 0, opacity: 1 }}
+        exit={{ scale: 0.9, y: 50, opacity: 0 }}
+        transition={{ type: "spring", damping: 25, stiffness: 300 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header with image background */}
+        <div className={`relative h-56 ${!product.imageUrl ? `bg-gradient-to-br ${getProductColor(product.name)}` : "bg-gray-100"}`}>
+          {product.imageUrl && (
+            <Image
+              src={product.imageUrl}
+              alt={product.name}
+              fill
+              className="object-contain p-4"
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+          
+          {/* Close Button */}
+          <motion.button
+            className="absolute top-4 right-4 p-2 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors z-10"
+            onClick={onClose}
+            whileHover={{ scale: 1.1, rotate: 90 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <X className="w-5 h-5" />
+          </motion.button>
+
+          {/* Popular Badge */}
+          <motion.div
+            className="absolute top-4 left-4 px-3 py-1.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold rounded-full flex items-center gap-1.5 shadow-lg"
+            initial={{ x: -20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <TrendingUp className="w-3.5 h-3.5" />
+            Popular
+          </motion.div>
+        </div>
+
+        {/* Content */}
+        <div className="p-6 overflow-y-auto max-h-[calc(90vh-14rem)]">
+          {/* Product Name & Status */}
+          <div className="mb-4">
+            <motion.h2
+              className="text-2xl font-bold text-gray-900 mb-2"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+            >
+              {product.name}
+            </motion.h2>
+            <motion.div
+              className="flex items-center gap-2"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+            >
+              <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${stockStatus.color}`}>
+                {stockStatus.label}
+              </span>
+              <span className="text-sm text-gray-500">
+                {soldCount}k+ sold
+              </span>
+            </motion.div>
+          </div>
+
+          {/* Price & Rating */}
+          <motion.div
+            className="flex items-center justify-between mb-6 p-4 bg-gray-50 rounded-xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <div>
+              <p className="text-sm text-gray-500 mb-1">Price</p>
+              <p className="text-3xl font-bold text-purple-600">${product.price.toFixed(2)}</p>
+            </div>
+            <div className="text-right">
+              <p className="text-sm text-gray-500 mb-1">Rating</p>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1">
+                  <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+                  <span className="text-2xl font-bold text-gray-900">
+                    {product.rating ? product.rating.toFixed(1) : "N/A"}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Stock Info */}
+          <motion.div
+            className="mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <div className="flex items-center gap-2 mb-2">
+              <Boxes className="w-4 h-4 text-gray-500" />
+              <span className="text-sm font-medium text-gray-700">Stock Level</span>
+            </div>
+            <div className="flex justify-between text-sm mb-2">
+              <span className="text-gray-500">Available Units</span>
+              <span className="text-gray-700 font-semibold">{product.stockQuantity.toLocaleString()}</span>
+            </div>
+            <div className="h-2.5 bg-gray-200 rounded-full overflow-hidden">
+              <motion.div
+                className={`h-full rounded-full ${
+                  product.stockQuantity === 0
+                    ? "bg-red-500"
+                    : product.stockQuantity <= 100
+                    ? "bg-orange-500"
+                    : "bg-green-500"
+                }`}
+                initial={{ width: 0 }}
+                animate={{ width: `${Math.min((product.stockQuantity / 1000) * 100, 100)}%` }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+              />
+            </div>
+          </motion.div>
+
+          {/* Description */}
+          <motion.div
+            className="mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+          >
+            <p className="text-sm font-medium text-gray-700 mb-2">Description</p>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              {product.description || "No description available for this product. This is a popular item with high customer demand and excellent reviews."}
+            </p>
+          </motion.div>
+
+          {/* Action Button */}
+          <motion.button
+            className="w-full py-3.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-semibold transition-colors flex items-center justify-center gap-2"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            <ShoppingBag className="w-5 h-5" />
+            View Full Details
+          </motion.button>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
